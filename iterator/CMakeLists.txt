@@ -1,0 +1,2 @@
+# add_library(libiterator behavioral_iterator_facade.cpp behavioral_iterator.cpp)
+add_library(libiterator behavioral_iterator_1.cpp behavioral_iterator_2.cpp behavioral_iterator_3.cpp)

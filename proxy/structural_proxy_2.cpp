@@ -131,13 +131,13 @@ class Person2 {
    string name;
    int    age;
 public:
-   Person2( string n ) { name = n; }
+   Person2( string n) { name = n;}
    string getName()   { return name; }
-   int    getAge()    { return 32; }
+   int    getAge()    { return age; }//32 ??
 };
 
 int main( void ) {
-   POP<Person2> ph( "Tom" );
+   POP<Person2> ph( "Tom");
    cout << "policy holder is " << ph->getName() << ", age is " << ph->getAge() << '\n';
    return 0;
 }

@@ -1,0 +1,1 @@
+add_library(libinterpreter behavioral_interpreter_1.cpp behavioral_interpreter_2.cpp)

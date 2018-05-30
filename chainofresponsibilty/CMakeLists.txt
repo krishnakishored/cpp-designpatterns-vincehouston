@@ -1,0 +1,1 @@
+add_library(libchainofresponsibility behavioral_chainofresponsibility_1.cpp behavioral_chainofresponsibility_2.cpp)
