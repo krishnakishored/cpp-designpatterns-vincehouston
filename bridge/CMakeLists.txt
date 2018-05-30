@@ -1,0 +1,1 @@
+add_library(libbridge structural_bridge_1.cpp structural_bridge_2.cpp)

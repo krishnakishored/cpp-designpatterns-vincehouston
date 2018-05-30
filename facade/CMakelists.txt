@@ -1,0 +1,1 @@
+add_library(libfacade structural_facade_1.cpp structural_facade_1.cpp)

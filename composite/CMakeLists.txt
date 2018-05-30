@@ -1,0 +1,1 @@
+add_library(libcomposite structural_composite_1.cpp structural_composite_2.cpp)

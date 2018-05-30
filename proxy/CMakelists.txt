@@ -1,0 +1,1 @@
+add_library(libproxy  structural_proxy_1.cpp structural_proxy_2.cpp)

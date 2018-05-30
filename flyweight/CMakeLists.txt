@@ -1,0 +1,1 @@
+add_library(libflyweight  structural_flyweight_1.cpp structural_flyweight_2.cpp)

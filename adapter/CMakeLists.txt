@@ -1,0 +1,1 @@
+add_library(libadapter structural_adapter_1.cpp structural_adapter_2.cpp)
