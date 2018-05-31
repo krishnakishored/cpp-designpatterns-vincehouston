@@ -1,0 +1,1 @@
+add_library(libmediator behavioral_mediator_1.cpp behavioral_mediator_2.cpp)

@@ -1,0 +1,1 @@
+add_library(libstrategy behavioral_strategy_1.cpp behavioral_strategy_2.cpp behavioral_strategy_3.cpp behavioral_strategy_4.cpp behavioral_strategy_5.cpp behavioral_strategy_6.cpp behavioral_strategy_7.cpp behavioral_strategy_8.cpp) 

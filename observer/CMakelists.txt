@@ -1,0 +1,4 @@
+add_library(libobserver behavioral_observer_1.cpp)
+# add_library(libobserver behavioral_observer_1.cpp behavioral_observer_2.cpp)
+
+

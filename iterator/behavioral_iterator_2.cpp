@@ -8,7 +8,10 @@
 // iterators as local variables, and no clean-up is necessary.
 
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+
 
 class Stack1 {
    int items[10];

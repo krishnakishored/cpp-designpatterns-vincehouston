@@ -22,7 +22,10 @@
 // 4. Clients use the first(), isDone(), next(), and currentItem() protocol
 
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+
 class StackIter;
 
 class Stack {

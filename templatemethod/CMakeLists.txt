@@ -1,0 +1,2 @@
+# add_library(libtemplatemethod behavioral_templatemethod_1.cpp behavioral_templatemethod_2.cpp behavioral_templatemethod_3.cpp)
+add_library(libtemplatemethod behavioral_templatemethod_1.cpp behavioral_templatemethod_2.cpp behavioral_templatemethod_3.cpp behavioral_templatemethod_6.cpp behavioral_templatemethod_7.cpp )
