@@ -1,0 +1,1 @@
+add_library(libabstractfactory creational_abstractfactory_1.cpp creational_abstractfactory_2.cpp creational_abstractfactory_3.cpp)

@@ -1,0 +1,1 @@
+add_library(libfactorymethod creational_factorymethod_1.cpp creational_factorymethod_2.cpp creational_factorymethod_3.cpp)

@@ -1,0 +1,1 @@
+add_library(libsingleton creational_singleton_1.cpp creational_singleton_2.cpp creational_singleton_3.cpp creational_singleton_4.cpp creational_singleton_5.cpp creational_singleton_6.cpp)

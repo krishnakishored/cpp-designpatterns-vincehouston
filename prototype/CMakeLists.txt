@@ -1,0 +1,2 @@
+add_library(libprototype creational_prototype_1.cpp creational_prototype_2.cpp creational_prototype_3.cpp creational_prototype_4.cpp)
+

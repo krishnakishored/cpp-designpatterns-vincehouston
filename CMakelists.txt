@@ -31,10 +31,11 @@ add_subdirectory(strategy)
 add_subdirectory(templatemethod)
 add_subdirectory(visitor)
 
-# add_subdirectory(builder)
-# add_subdirectory(factories)
-# add_subdirectory(prototype)
-# add_subdirectory(singleton)
+add_subdirectory(abstractfactory)
+add_subdirectory(builder)
+add_subdirectory(factorymethod)
+add_subdirectory(prototype)
+add_subdirectory(singleton)
 
 
 
@@ -47,7 +48,7 @@ add_subdirectory(visitor)
 
 # add_executable(${PROJECT_NAME} ${SOURCE})
 add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME} libadapter libbridge libcomposite libdecorator libfacade  libflyweight libproxy libchainofresponsibility libcommand libinterpreter libiterator libmediator libmemento libobserver libstate libstrategy libtemplatemethod libvisitor)
+target_link_libraries(${PROJECT_NAME} libabstractfactory  libbuilder libfactorymethod libprototype libsingleton libadapter libbridge libcomposite libdecorator libfacade  libflyweight libproxy libchainofresponsibility libcommand libinterpreter libiterator libmediator libmemento libobserver libstate libstrategy libtemplatemethod libvisitor)
 
 # target_link_libraries(${PROJECT_NAME} libadapter libbuilder libcomposite libfacade libfactories libprototype libsingleton libbridge libdecorator libflyweight libchainofresponsibility libcommand libinterpreter libiterator libmediator libstate libstrategy libtemplatemethod libvisitor)
 
