@@ -32,7 +32,7 @@ class Two : public Base {
    /*virtual*/ void ph2() { cout << "4  "; }
 };
 
-int main( void ) {
+int main_templatemethod_4( void ) {
    Base* array[] = { &One(), &Two() }; //message: taking the address of a temporary object of type 'Two' [-Waddress-of-temporary]
    for (int i=0; i < 2; i++) {
       array[i]->execute();

@@ -48,7 +48,7 @@ class RobustShapeFactory : public Factory { public:
 };
 
 
-int main() {
+int main_abstractfactory_3() {
 // #ifdef SIMPLE
 //    Factory*  factory = new SimpleShapeFactory;
 // #elif ROBUST

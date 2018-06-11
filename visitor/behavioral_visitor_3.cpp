@@ -52,7 +52,7 @@ class Two : public State { public:
    }                                    
 };                                      
 State* states[] = { new One, new Two }; 
-int main( void )                       
+int main_visitor_3( void )                       
 {                                       
    Cmd* c[] = { new Off,                
         new On, new Off, new Off, 0 };  

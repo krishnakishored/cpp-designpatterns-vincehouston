@@ -104,7 +104,7 @@ void TestBed::setStrategy( int type, int width ) {
 
 void TestBed::doIt() { strategy_->format(); }
 
-int main() {
+int main_strategy_8() {
    TestBed  test;
    int      answer, width;
    cout << "Exit(0) Left(1) Right(2) Center(3): ";

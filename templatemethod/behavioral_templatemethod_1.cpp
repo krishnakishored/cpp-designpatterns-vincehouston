@@ -40,7 +40,7 @@ private:
       int t = a; a = b; b = t; }        
 };                                      
                                         
-int main( void )                       
+int main_templatemethod_1( void )                       
 {                                       
    const int NUM = 10;
    int       array[NUM];                

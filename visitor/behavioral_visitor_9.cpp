@@ -41,7 +41,7 @@ class P2 : public Processor { public:
 /*virtual*/ void R2::execute( P1* p ) { p->procOneMethod(); cout << "request two\n"; }
 /*virtual*/ void R2::execute( P2* p ) { p->procTwoMethod(); cout << "request two\n"; }
 
-int main( void ) {
+int main_visitor_9( void ) {
    Processor* handlers[] = { new P1(), new P2() };
    Request*   commands[] = { new R1(), new R2() };
    for (int i=0; i < 2; i++)

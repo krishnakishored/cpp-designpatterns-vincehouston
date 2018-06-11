@@ -86,7 +86,7 @@ void Widget::changed() {
 	_mediator->widgetChanged( this ); }
 
 
-int main() {
+int main_mediator_1() {
 	FileSelectionDialog fileDialog;
 	int                 i;
 

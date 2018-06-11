@@ -36,7 +36,7 @@ private:
    }                                    
 };
                                         
-int main( void )                       
+int main_strategy_1( void )                       
 {                                       
    const int NUM = 9;                   
    int       array[NUM];                

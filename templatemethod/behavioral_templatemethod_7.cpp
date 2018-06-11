@@ -52,7 +52,7 @@ class FillInTheTemplate : public IncompleteAlgorithm {
       cout << "FillInTheTemplate::stepFour" << endl; }
 };
 
-int main() {
+int main_templatemethod_7() {
    FillInTheTemplate  theThingToDo;
    theThingToDo.doIt();
    return 0;

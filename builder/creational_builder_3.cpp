@@ -101,7 +101,7 @@ PersistenceAttribute  input[NUM_ENTRIES] = { {File, "state.dat"},
   {File,"config.sys"}, {Queue, "compute"}, {Queue, "log"},
   {Pathway, "authentication"}, {Pathway, "error processing"} };
 
-int main() {
+int main_builder_3() {
   UnixBuilder  unixBuilder;
   VmsBuilder   vmsBuilder;
   Reader       reader;

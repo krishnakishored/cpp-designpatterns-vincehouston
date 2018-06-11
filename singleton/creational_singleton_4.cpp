@@ -50,7 +50,7 @@ void bar( void ) {
       GlobalClass::inst()->getValue()
       << endl;
 }
-int main( void ) {
+int main_singleton_4( void ) {
    cout << "main: globalObj is " <<
       GlobalClass::inst()->getValue()
       << endl;

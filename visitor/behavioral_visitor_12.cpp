@@ -100,7 +100,7 @@ void processCombine( Binary& first, Binary& second, Binary& third ) {
    first.combine( second, third );
 }
 
-int main( void ) {
+int main_visitor_12( void ) {
    Binary*  list[2] = { &Zero(), &One() }; // message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
 
    // Run through permutations

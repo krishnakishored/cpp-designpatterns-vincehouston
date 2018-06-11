@@ -62,7 +62,7 @@ public:
    BST::Node* currentItem() { return array[index]; }
 };
 
-int main( void ) {
+int main_interpreter_3( void ) {
    srand( time( 0 ) );
    BST  tree;
    for (int i=0; i < 20; i++) tree.add( rand() % 20 + 1 );

@@ -32,7 +32,7 @@ private:
 };
 int H1::count_ = 1;                     
 
-int main( void ) 
+int main_chainofresponsibility_1( void ) 
 {                  
    const int TOTAL = 2;              
    H1* list[TOTAL] = { new H1, new H1};

@@ -42,7 +42,7 @@ void R1::reqOneMethod( P2* p ) { p->procTwoMethod(); cout << "request one\n"; }
 void R2::reqTwoMethod( P1* p ) { p->procOneMethod(); cout << "request two\n"; }
 void R2::reqTwoMethod( P2* p ) { p->procTwoMethod(); cout << "request two\n"; }
 
-int main( void ) {
+int main_visitor_8( void ) {
    Processor* handlers[] = { new P1(), new P2() };
    Request*   commands[] = { new R1(), new R2() };
    for (int i=0; i < 2; i++)

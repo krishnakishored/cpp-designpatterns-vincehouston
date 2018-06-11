@@ -24,7 +24,7 @@ public:
    void execute() { a();  _2();  c();  _4();  e(); }
 };
 
-int main( void ) {
+int main_templatemethod_3( void ) {
    One first;
    first.execute();
    cout << '\n';

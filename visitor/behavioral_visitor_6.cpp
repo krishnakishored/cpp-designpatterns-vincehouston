@@ -52,7 +52,7 @@ class AddVisitor : public Visitor { public:
    /*virtual*/ void visit( Composite* node, Component* c ) { node->add( c ); }
 };
 
-int main( void ) {
+int main_visitor_6( void ) {
    Component*  nodes[3];
    // The type of Composite* is "lost" when the object is assigned to a
    // Component*

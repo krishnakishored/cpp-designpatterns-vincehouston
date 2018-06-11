@@ -53,7 +53,7 @@ void bar( void )
       << endl;
 }
 
-int main( void )
+int main_singleton_6( void )
 {
    cout << "main: globalObj is " <<
       GlobalClass::inst().getValue()
@@ -124,7 +124,7 @@ Number* Number::instance() {
    return inst;
 }
 
-int main_singleton_6( void ) {
+int main_singleton_6B( void ) {
    // Number  myInstance; --- error: cannot access protected constructor
    // 5. Clients may only use the accessor function to manipulate the Singleton
    Number::instance()->setValue( 42 );

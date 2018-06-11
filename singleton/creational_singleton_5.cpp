@@ -48,7 +48,7 @@
        globalObj->getValue() << endl;    
  }                                       
                                          
- int main( void )
+ int main_singleton_5( void )
  {                                       
     if ( ! globalObj )                   
        globalObj = new GlobalClass;      

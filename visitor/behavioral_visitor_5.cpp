@@ -61,7 +61,7 @@ class DownVisitor : public Visitor {
       cout << "do Down on " + e->theOther() << '\n'; }
 };
 
-int main( void ) {
+int main_visitor_5( void ) {
    Element* list[] = { new This(), new That(), new TheOther() };
    UpVisitor    up;             // 4. Client creates
    DownVisitor  down;           //    "visitor" objects

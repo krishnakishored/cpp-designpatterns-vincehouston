@@ -50,7 +50,7 @@ private:
    int cash_;                           
 };                                      
                                         
-int main( void )                       
+int main_command_1( void )                       
 {                                       
    Deadbeat joe(90), tom(90);           
    IOU one ={&joe, &Deadbeat::payUp,60};

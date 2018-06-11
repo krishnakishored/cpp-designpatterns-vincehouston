@@ -1,13 +1,4 @@
-#include<iostream>
-#include<vector>
-#include<string>
-
-using std::cout;
-using std::vector;
-using std::string;
-using std::cin;
-using std::endl;
-
+#include "behavioral_observer.h"
 
 
 // Purpose.  Observer design pattern
@@ -64,7 +55,7 @@ class ModObserver : public Observer1 { public:
       cout << v << " mod " << d << " is " << v % d << '\n';
 }  };
 
-int main( void ) {
+int main_observer_2( void ) {
    Subject      subj;
    DivObserver  divObs1( &subj,4 );  // 7. Client configures the number and
    DivObserver  divObs2( &subj,3 );  //    type of Observers
@@ -133,7 +124,7 @@ public:
       byTheNumbers();
 }  };
 
-int main_observer_2( void ) {
+int main_observer_2_B( void ) {
    SensorSystem ss;
    ss.attach( &Gates()        ); //message taking the address of a temporary object of type 'Lighting' [-Waddress-of-temporary]
    ss.attach( &Lighting()     );
@@ -300,7 +291,7 @@ class PowerMonitor : public On::Handler{
       cout << "PowerMonitor - ";  msg->start(); }
 };
 
-int main( void ) {
+int main_observer_2_C( void ) {
    MasterConsole  mc;
    PowerMonitor   pm;
    On oneEvent( "lights" );  Off thrEvent( "elevators" );

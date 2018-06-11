@@ -125,7 +125,7 @@ class Pheau { public:
    return array;
 }
 
-int main( void ) {
+int main_command_3( void ) {
    ExecuteInterface** objects = initialize();
 
    for (int i=0; i < 3; i++) objects[i]->execute();  // 3. Client uses the new

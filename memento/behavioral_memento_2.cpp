@@ -82,7 +82,7 @@ Memento* Command::_mementoList[];
 int      Command::_numCommands = 0;
 int      Command::_highWater   = 0;
 
-int main() {
+int main_memento_2() {
    int i;
    cout << "Integer: ";
    cin >> i;

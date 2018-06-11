@@ -60,7 +60,7 @@ class C : public Base { public:
       cout << "first is C, second is C\n"; }
 };
 
-int main( void ) 
+int main_visitor_12( void ) 
 {
    Base* array[] = { &A(), &B(), &C() }; //message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
    for (int i=0; i < 3; i++){

@@ -48,7 +48,7 @@ void doThatWindow() {
 #endif
    w->draw(); }                         
                                         
-int main( void )                       
+int main_abstractfactory_1( void )                       
 {                                       
    // create window, attach btn         
 #ifdef MOTIF                            

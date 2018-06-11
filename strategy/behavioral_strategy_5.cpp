@@ -45,7 +45,7 @@ private:
    }
 };
 
-int main( void ) {
+int main_strategy_5( void ) {
    const int NUM = 9;
    int       array[NUM];
    srand( time(0) );

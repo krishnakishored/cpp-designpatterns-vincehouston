@@ -45,7 +45,7 @@ public:
       cout << "Curly: suffer abuse" << endl; }
 };
 
-int main( void ) {
+int main_prototype_3( void ) {
    Stooge*  roles[10];
    int      in, j, i = 0;
 

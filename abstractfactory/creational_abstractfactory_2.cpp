@@ -38,7 +38,7 @@ void doThatWindow() {
    Widget* w = factory->createBtn();
    w->draw(); }
 
-int main( void )
+int main_abstractfactory_2( void )
 {
 #ifdef MOTIF
    factory = new MotifFactory;

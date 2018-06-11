@@ -46,7 +46,7 @@ class Numeric : public StandardAlgorithm {
       else return false;
 }  };
 
-int main( void ) {
+int main_templatemethod_5( void ) {
    StandardAlgorithm* types[] = { &Alphabetic(), &Numeric() }; //message: taking the address of a temporary object of type 'Alphabetic' [-Waddress-of-temporary]
    char buf[20];
    while (true) {

@@ -9,7 +9,7 @@
 // constructs, the B returns result.    
 #include<iostream>
 #include<string>     
-#include<deque>P
+#include<deque>
                   
 using namespace std;
 
@@ -30,7 +30,7 @@ private:
 string in[] = { "fa", "bb", "fc",       
    "bd", "fe", "bf", "fg", "bh" };      
                                         
-int main( void ) {                     
+int main_builder_1( void ) {                     
    Array  list;                         
    for (int i=0; i < 8; i++)
       if (in[i][0] == 'f')              

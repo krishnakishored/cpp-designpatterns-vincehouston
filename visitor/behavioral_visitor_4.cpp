@@ -36,7 +36,7 @@ class Two : public State { public:
       c->visit( this ); }
 };
 State* states[] = { new One, new Two };
-int main( void )
+int main_visitor_4( void )
 {
    Cmd* c[] = { new Off,
         new On, new Off, new Off, 0 };

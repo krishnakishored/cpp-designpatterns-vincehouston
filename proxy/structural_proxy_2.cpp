@@ -136,7 +136,7 @@ public:
    int    getAge()    { return age; }//32 ??
 };
 
-int main( void ) {
+int main_proxy_2( void ) {
    POP<Person2> ph( "Tom");
    cout << "policy holder is " << ph->getName() << ", age is " << ph->getAge() << '\n';
    return 0;

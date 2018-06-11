@@ -50,7 +50,7 @@ private:
    }   
 };                                      
                                         
-int main( void )                       
+int main_state_1( void )                       
 {                                       
    Boss1 ph;                             
    for (int i=0; i < 2; i++)            

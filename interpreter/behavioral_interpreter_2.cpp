@@ -111,7 +111,7 @@ int RNInterpreter::interpret( char* input ) {
    return total; }
 
 
-int main() {
+int main_interpreter_2() {
    RNInterpreter interpreter;
    char          input[20];
    cout << "Enter Roman Numeral: ";

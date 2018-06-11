@@ -41,7 +41,8 @@ void Red::accept( Visitor& v ) {
    v.visit( *this ); }
 void Blu::accept( Visitor& v ) {
    v.visit( *this ); }
-int main( void )
+   
+int main_visitor_2( void )
 {
    Color* set[] = { new Red, new Blu,
       new Blu, new Red, new Red, 0 };

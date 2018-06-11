@@ -44,7 +44,7 @@ class SortDown : public Sort {
    int needSwap(int a, int b) {
       return (a < b); }
 };
-int main( void )
+int main_templatemethod_2( void )
 {
    const int NUM = 10;
    int       array[NUM];

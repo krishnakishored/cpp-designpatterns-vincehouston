@@ -119,7 +119,7 @@ class Noun { public:
     NP np;  Verb verb;
  };
 
- int main( void )
+ int main_interpreter_1( void )
  {
     Sent S;  char* t[] = {(char *)"ace",(char *)"bdh",
                  (char *) "abc",(char *)"ceg",(char *)"bcfgh"};

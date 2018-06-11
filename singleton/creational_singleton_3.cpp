@@ -54,7 +54,7 @@
        GlobalClass::inst()->getValue()   
        << endl;                          
  }                                       
- int main( void ) {                     
+ int main_singleton_3( void ) {                     
     cout << "main: globalObj is " <<     
        GlobalClass::inst()->getValue()   
        << endl;                          

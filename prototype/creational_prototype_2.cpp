@@ -11,7 +11,7 @@ public:
 private:
    static Stooge* prototypes_[4];
 };
-int main( void )
+int main_prototype_2( void )
 {
    Stooge*  roles[10];
    int      in, j, i = 0;

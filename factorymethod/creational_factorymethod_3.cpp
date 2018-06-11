@@ -77,7 +77,7 @@ public:
     return new MyDocument( fn ); }
 };
 
-int main() {
+int main_factorymethod_3() {
   /* Client's customization of the Framework */
   MyApplication  myApp;
 

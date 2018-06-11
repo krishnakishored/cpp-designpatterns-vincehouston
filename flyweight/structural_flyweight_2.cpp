@@ -113,7 +113,7 @@ public:
 };
 
 
-int main() {
+int main_flyweight_1() {
 	DialogBox* dialogs[2];
 	dialogs[0] = new FileSelection(
 		FlyweightFactory::getIcon((char*)"go"),

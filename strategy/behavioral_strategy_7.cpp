@@ -62,7 +62,7 @@ public:
    }
 };
 
-int main( void ) {
+int main_strategy_7( void ) {
    const int NUM = 9;
    int       array[NUM];
    srand( time(0) );

@@ -35,7 +35,7 @@ public:
 
 // #include "strategy2.inc"
 
-int main( void ) {
+int main_strategy_4( void ) {
    const int NUM = 9;
    int       array[NUM];
    time_t    t;

@@ -75,7 +75,7 @@ private:
    SortImpl*  m_impl;
 };
 
-int main( void ) {
+int main_strategy_6( void ) {
    const int NUM = 9;
    int       array1[NUM], array2[NUM];
    srand( time(0) );

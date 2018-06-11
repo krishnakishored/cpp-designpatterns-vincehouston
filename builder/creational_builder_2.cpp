@@ -6,7 +6,8 @@ using namespace std;
 
 class Array { public:                   
    virtual void traverse() = 0;         
-};                                      
+};                     
+
                                         
 class OneEnded : public Array {         
 public:                                 
@@ -75,7 +76,7 @@ public:
 private:
    Builder* bldr;
 };
-int main( void ) {
+int main_builder_2( void ) {
    BuilderOne one;
    BuilderTwo two;
    Director dir( &one );

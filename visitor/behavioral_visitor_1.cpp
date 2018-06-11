@@ -57,7 +57,7 @@ class Blu : public Color { public:
    void sky() { cout << "Blu::sky\n";}  
 };                                      
                                         
-int main( void )                       
+int main_visitor_1( void )                       
 {                                       
    Color* set[] = { new Red, new Blu,
       new Blu, new Red, new Red, 0 };   

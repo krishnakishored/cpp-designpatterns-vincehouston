@@ -9,7 +9,8 @@ public:
    // Factory Method (virtual ctor)
    static Stooge* create( int );
 };
-int main( void ) {
+
+int main_factorymethod_2( void ) {
    Stooge*  roles[10];
    int      in, j, i = 0;
    while (1) {

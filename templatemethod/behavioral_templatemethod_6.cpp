@@ -58,7 +58,7 @@ class C : public B {
       A::stepFor();
 }  };
 
-int main( void ) {
+int main_templatemethod_6( void ) {
    C algorithm;
    algorithm.findSolution();
    return 0;

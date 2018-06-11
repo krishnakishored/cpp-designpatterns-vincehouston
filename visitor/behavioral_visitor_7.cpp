@@ -55,7 +55,7 @@ class TransformVisitor : public Visitor { public:
    /*virtual*/ void visit( Composite* e ) { cout << (char)(e->getValue()-32) <<' ';}
 };
 
-int main( void ) {
+int main_visitor_7( void ) {
    Composite containers[4];
    for (int i=0; i < 4; i++)
       for (int j=0; j < 3; j++)
