@@ -74,10 +74,13 @@ int main_visitor_6( void ) {
    nodes[1]->accept( addVisitor, new Primitive(6) );
    nodes[2]->accept( addVisitor, new Primitive(7) );
         
-   for (int i=0; i < 3; i++) {
+   for (int i=0; i < 3; i++) 
+   {
       nodes[i]->traverse();
       cout << endl;
-}  }
+   }  
+return 0;
+}
 
 // 1 2 5 6 3 7 4 
 // 2 5 6 

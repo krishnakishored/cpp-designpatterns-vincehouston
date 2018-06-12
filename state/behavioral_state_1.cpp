@@ -5,12 +5,7 @@
 // very difficult.  The State pattern models individual states with derived classes of an inheritance hierarchy, and front-ends this       
 // hierarchy with an "interface" object that knows its "current" state.  This partitions and localizes all state-specific responsibilities; allowing for a cleaner     
 // implementation of dynamic behavior that must change as internal state changes.
-#include<iostream>
-
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
+#include "CommonHeader.h"
 
 #include <ctime>
 
@@ -50,8 +45,9 @@ private:
    }   
 };                                      
                                         
-int main_state_1( void )                       
-{                                       
+int main_state_1A( void )                      
+{   
+  cout<<">>>>>>>> main_state_1A <<<<<<<<"<<endl;                                      
    Boss1 ph;                             
    for (int i=0; i < 2; i++)            
    {                                    
@@ -109,8 +105,9 @@ void Boss::decide() {
 void Boss::direct() {
    moods_[current_]->direct( this ); }
 
-int main_state_2( void )
+int main_state_1B( void )
 {
+  cout<<">>>>>>>> main_state_1B <<<<<<<<"<<endl;  
    Boss ph;
    for (int i=0; i < 2; i++) 
    {
@@ -129,9 +126,8 @@ int main_state_2( void )
 
 
 
-// Purpose.  State design pattern - an FSM with two states and
-// two events (distributed transition logic - logic in the
-// derived state classes)
+// Purpose.  State design pattern - an FSM with two states and two events 
+// (distributed transition logic - logic in the derived state classes)
 
            //Event    on      off State \      -------  -------
            // ON          nothing    OFF
@@ -159,14 +155,14 @@ void Machine::off() { current->off( this ); }
 class ON : public State {
 public:
    ON()  { cout << "   ON-ctor ";  };
-   ~ON() { cout << "   dtor-ON\n"; };
+   virtual ~ON() { cout << "   dtor-ON\n"; };
    void off( Machine* m );
 };
 
 class OFF : public State {
 public:
    OFF()  { cout << "   OFF-ctor ";  };
-   ~OFF() { cout << "   dtor-OFF\n"; };
+   virtual ~OFF() { cout << "   dtor-OFF\n"; };//delete called on non-final 'OFF' that has virtual functions but non-virtual destructor [-Wdelete-non-virtual-dtor]
    void on( Machine* m ) {
       cout << "   going from OFF to ON";
       m->setCurrent( new ON() );
@@ -182,17 +178,22 @@ void ON::off( Machine* m ) {
 
 Machine::Machine() { current = new OFF();  cout << '\n'; }
 
-int main_state_3( void ) 
-{
-  void (Machine::*ptrs[])() = { Machine::off, Machine::on }; // message: call to non-static member function without an object argument
+int main_state_1C( void )  
+{ 
+ main_state_1A();
+ main_state_1B();     
+ cout<<">>>>>>>> main_state_1C <<<<<<<<"<<endl;  
+  Machine fsm;
+  int num;
+  void (Machine::*ptrs[])() = { &Machine::off, &Machine::on }; 
+  //void (Machine::*ptrs[])() = { Machine::off, Machine::on }; // message: call to non-static member function without an object argument
    
-   Machine fsm;
-   int num;
-   while (1) {
+   while (1) 
+   {
       cout << "Enter 0/1: ";
       cin >> num;
       (fsm.*ptrs[num])();
- }  
+   }  
 return 0;
 }
 

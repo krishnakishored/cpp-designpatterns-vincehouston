@@ -3,7 +3,7 @@
 // Discussion.  On the left: Subject has hard-wired the number and type of "dependent" objects, the compiler must have the declaration of the  
 // concrete Obs classes to compile Subject's decl, the Obs classes exercise no reuse of i/f or impl, and Subject "pushes" updates to the Obs objects.  
       
-#include "behavioral_observer.h"
+#include "CommonHeader.h"
 
 class DivObs1 { 
 public:                  
@@ -57,12 +57,13 @@ void Subject1::setVal( int v )
 
 int main_observer_1A( void )                       
 { 
-   cout<<"main_observer_1A"<<endl;
+   cout<<">>>>>>>> main_observer_1A <<<<<<<<"<<endl;
    Subject1  subj;                       
    subj.setVal( 14 );
    return 0;                   
 }
-
+// 14 div 4 is 3                        
+// 14 mod 3 is 2   
 /********************* ********************* ********************* ********************* *********************/
 
 // On the right: Subject is decoupled from the number, type, and declaration of concrete Obs subclasses; the Obs objects accept
@@ -147,10 +148,9 @@ void ModObs::update()
    cout << v << " mod " << div_ << " is " << v % div_ << endl; 
 }
 
-int main( void )
+int main_observer_1B( void )
 {
-   main_observer_1A();
-   cout<<"main_observer_1B"<<endl;
+   cout<<">>>>>>>> main_observer_1B <<<<<<<<"<<endl;
    
    Subject  subj;
    DivObs   divObs1( &subj, 4 );
@@ -162,7 +162,88 @@ int main( void )
 // 14 div 4 is 3
 // 14 div 3 is 4
 // 14 mod 3 is 2
-                                        
-// 14 div 4 is 3                        
-// 14 mod 3 is 2                        
+/********************* ********************* ********************* ********************* *********************/
+
+// Purpose.  Observer design pattern
+
+// 1. Model the "independent" functionality with a "subject" abstraction
+// 2. Model the "dependent" functionality with "observer" hierarchy
+// 3. The Subject is coupled only to the Observer base class
+// 4. Observers register themselves with the Subject
+// 5. The Subject broadcasts events to all registered Observers
+// 6. Observers "pull" the information they need from the Subject
+// 7. Client configures the number and type of Observers
+
+class Observer1;
+class Subject2 {                      // 1. "independent" functionality
+   vector<class Observer1*> views;    // 3. Coupled only to "interface"
+   int value;
+public:
+   void attach( Observer1* obs ) { views.push_back( obs ); }
+   void setVal( int val )       { value = val;  notify(); }
+   int  getVal()                { return value; }
+   void notify();
+};
+
+// 2. "dependent" functionality
+class Observer1 
+{ 
+   Subject2* model;
+   int      denom;
+public:
+   Observer1( Subject2* mod, int div ) 
+   {
+      model = mod;  denom = div;
+      // 4. Observers register themselves with the Subject
+      model->attach( this );
+   }
+   virtual void update() = 0;
+protected:
+   Subject2* getSubject() { return model; }
+   int      getDivisor() { return denom; }
+};
+
+void Subject2::notify() { // 5. Publisher broadcasts
+   for (int i=0; i < views.size(); i++) views[i]->update();
+}
+
+class DivObserver : public Observer1 
+{ 
+public:
+   DivObserver( Subject2* mod, int div ) : Observer1(mod,div) { }
+   void update() 
+   {                   // 6. "Pull" information of interest
+      int v = getSubject()->getVal(), d = getDivisor();
+      cout << v << " div " << d << " is " << v / d << '\n';
+   }  
+};
+
+class ModObserver : public Observer1 
+{
+public:
+   ModObserver( Subject2* mod, int div ) : Observer1(mod,div) { }
+   void update() 
+   {
+      int v = getSubject()->getVal(), d = getDivisor();
+      cout << v << " mod " << d << " is " << v % d << '\n';
+   }  
+};
+
+int main_observer_1C( void ) {
+   main_observer_1A();
+   main_observer_1B();
+   cout<<">>>>>>>> main_observer_1C <<<<<<<<"<<endl;
+   Subject2      subj;
+   DivObserver  divObs1( &subj,4 );  // 7. Client configures the number and
+   DivObserver  divObs2( &subj,3 );  //    type of Observers
+   ModObserver  modObs3( &subj,3 );
+   subj.setVal( 14 );
+   return 0;
+}
+
+// 14 div 4 is 3
+// 14 div 3 is 4
+// 14 mod 3 is 2
+
+
 

@@ -1,14 +1,11 @@
 ﻿// Purpose.  Command                    
 //                                      
 // Discussion.  On the left, an IOU has been encapsulated as a struct, and TheBoss class is tightly coupled to that struct.  
-// On the right,TheBoss is only coupled to the abstract class Command.  Lots of possible derived classes could be substituted: IOUs that call payUp() on
-// Deadbeats, Checks that call cash() on Banks, Stocks that call redeem() on Companies.  
+
+// On the right,TheBoss is only coupled to the abstract class Command.  
+// Lots of possible derived classes could be substituted: IOUs that call payUp() on Deadbeats, Checks that call cash() on Banks, Stocks that call redeem() on Companies.  
 // Each "command" is a "token" that gets transfered from one holder to another, until someone chooses to "execute" it.         
-#include <iostream>  
-#include <string>  
-using std::cout;
-// using std::cin;
-using std::endl;
+#include "CommonHeader.h"
 
 class Deadbeat 
 { 
@@ -50,8 +47,9 @@ private:
    int cash_;                           
 };                                      
                                         
-int main_command_1( void )                       
-{                                       
+int main_command_1A( void )                       
+{                               
+   cout<<">>>>>>>> main_command_1A <<<<<<<<"<<endl;              
    Deadbeat joe(90), tom(90);           
    IOU one ={&joe, &Deadbeat::payUp,60};
    IOU two ={&tom, &Deadbeat::payUp,70}; 
@@ -60,13 +58,13 @@ int main_command_1( void )
                                         
    don.collect( quido.collect() );      
    don.collect( lucca.collect() );      
-   cout << "joe has $" << joe.rptCash();
-   cout << "tom has $" << tom.rptCash(); 
-   cout << "don has $" << don.rptCash(); 
+   cout << "joe has $" << joe.rptCash()<<endl;
+   cout << "tom has $" << tom.rptCash()<<endl; 
+   cout << "don has $" << don.rptCash()<<endl; 
    return 0;
 }   
 
-
+/********************* ********************* ********************* ********************* *********************/
 
 class Command { public:
    virtual int execute() = 0;
@@ -92,6 +90,7 @@ public:
 private:
    Command& cmd_;
 };
+
 class TheBoss2 {
 public:
    TheBoss2() { cash_ = 1000; }
@@ -104,8 +103,10 @@ private:
    int cash_;
 };
 
-int main_2( void )
+int main_command_1B( void )
 {
+   main_command_1A();
+   cout<<">>>>>>>> main_command_1B <<<<<<<<"<<endl;  
    Deadbeat joe(90), tom(90);
    IOU2 one(&joe, &Deadbeat::payUp, 60);
    IOU2 two(&tom, &Deadbeat::payUp, 70);
@@ -113,9 +114,9 @@ int main_2( void )
    TheBoss2  don;
    don.collect( quido.collect() );
    don.collect( lucca.collect() );
-   cout << "joe has $" << joe.rptCash();
-   cout << "tom has $" << tom.rptCash();
-   cout << "don has $" << don.rptCash();
+   cout << "joe has $" << joe.rptCash()<<endl;
+   cout << "tom has $" << tom.rptCash()<<endl; 
+   cout << "don has $" << don.rptCash()<<endl; 
    return 0;
 }
 // joe has $30

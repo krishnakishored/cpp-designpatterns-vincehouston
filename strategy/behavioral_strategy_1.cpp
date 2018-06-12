@@ -2,13 +2,7 @@
 //                                      
 // Discussion.  The class Stat has a Bubble sort algorithm hard-wired in it.  It would be nice if the choice of algorithm were configurable.
 // The Strategy pattern suggests "define a family of algo's, encapsulate each one, and make them interchangeable" via an abstract base class.  
-
-#include<iostream>
-
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
+#include"CommonHeader.h"
        
                                         
 class Stat {     /* Bubble sort */      
@@ -36,8 +30,10 @@ private:
    }                                    
 };
                                         
-int main_strategy_1( void )                       
-{                                       
+// int main_strategy_1( void )                       
+int main()
+{                                     
+  cout<<">>>>>>>> main_strategy_1 <<<<<<<<"<<endl;   
    const int NUM = 9;                   
    int       array[NUM];                
    time_t    t;                         

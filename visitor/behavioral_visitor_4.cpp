@@ -42,6 +42,7 @@ int main_visitor_4( void )
         new On, new Off, new Off, 0 };
    for (int i=0; c[i]; i++)
       states[current]->accept( c[i] );
+ return 0;
 }
 // ERROR
 // One,On => Two

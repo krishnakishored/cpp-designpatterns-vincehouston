@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.tcfg": "txt",
+        "*.ipp": "cpp",
+        "__locale": "cpp"
+    }
+}

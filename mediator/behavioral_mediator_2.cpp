@@ -3,6 +3,7 @@
 // Discussion.  Though partitioning a system into many objects generally enhances reusability, proliferating interconnections tend to reduce it again
 // You can avoid this problem by capsulating the interconnections (i.e. the collective behavior) in a separate "mediator" object.  
 // A mediator is responsible for controlling and coordinating the interactions of a group of objects.  
+
 // In this example, the dialog box object is functioning as the mediator.  Child widgets of the dialog box do not know, or care, who their siblings are.  
 // Whenever a simulated user interaction occurs in a child widget [Widget::changed()], the widget does nothing except "delegate" that event to its parent dialog
 // box [_mediator->widgetChanged( this )]. FileSelectionDialog::widgetChanged() encapsulates all collective behavior for the dialog box (it serves as the hub of communication).
@@ -24,6 +25,7 @@ public:
 	virtual void changed();
 	virtual void updateWidget() = 0;
 	virtual void queryWidget() = 0;
+	virtual ~Widget();// message: delete called on 'Widget' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
 protected:
 	char                 _name[20];
 private:
@@ -86,7 +88,8 @@ void Widget::changed() {
 	_mediator->widgetChanged( this ); }
 
 
-int main_mediator_1() {
+int main_mediator_2() {
+	cout<<">>>>>>>> main_mediator_2 <<<<<<<<"<<endl;    
 	FileSelectionDialog fileDialog;
 	int                 i;
 

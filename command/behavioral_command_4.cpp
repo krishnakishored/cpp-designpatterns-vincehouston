@@ -3,14 +3,7 @@
 
 // Purpose.  Command design pattern and class template
 
-#include <iostream>
-#include <string>
-
-using std::cout;
-using std::cin;
-using std::string;
-
-using std::endl;
+#include "CommonHeader.h"
 
 class A {
    int divisor;
@@ -44,7 +37,9 @@ private:
    ARG    argument;
 };
 
-int main_command_4( void ) {
+int main_command_4A( void ) //TODO: taking the address of a temporary object of type 'Command<A, int>' [-Waddress-of-temporary]
+{
+   cout<<">>>>>>>> main_command_4A <<<<<<<<"<<endl;  
    Command<A,int>* list1[4] = {
       &Command<A,int>( &A(3), &A::divide,  16 ),
       &Command<A,int>( &A(3), &A::modulus, 16 ),
@@ -125,7 +120,9 @@ class Pheau { public:
    return array;
 }
 
-int main_command_3( void ) {
+int main_command_4B( void ) 
+{
+      cout<<">>>>>>>> main_command_4B <<<<<<<<"<<endl;  
    ExecuteInterface** objects = initialize();
 
    for (int i=0; i < 3; i++) objects[i]->execute();  // 3. Client uses the new
@@ -204,7 +201,9 @@ void MacroCommand::execute() {
       _list[i]->execute();
 }
 
-int main_command_6() {
+int main_command_4C() 
+{
+   cout<<">>>>>>>> main_command_4C <<<<<<<<"<<endl;  
    int i;
    cout << "Integer: ";
    cin >> i;

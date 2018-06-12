@@ -1,2 +1,2 @@
-add_library(libcommand behavioral_command_1.cpp)
-# add_library(libcommand behavioral_command_1.cpp behavioral_command_2.cpp behavioral_command_3.cpp)
+add_library(libcommand behavioral_command_1.cpp behavioral_command_2.cpp)
+# add_library(libcommand behavioral_command_1.cpp behavioral_command_2.cpp behavioral_command_3.cpp behavioral_command_4.cpp)

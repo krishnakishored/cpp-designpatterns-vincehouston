@@ -1,8 +1,8 @@
-#include<iostream>
+#include"CommonHeader.h"
 int main_hello()
 {
 
-    std::cout<<"Design Patterns by Vince Houston"<<std::endl;
+    cout<<"Design Patterns by Vince Houston"<<endl;
 
     return 0;
 }

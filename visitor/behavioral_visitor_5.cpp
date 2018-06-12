@@ -69,6 +69,7 @@ int main_visitor_5( void ) {
       list[i]->accept( up );    //    to accept() calls
    for (int i=0; i < 3; i++)
       list[i]->accept( down );
+  return 0;
 }
 
 // do Up on This                // do Down on This

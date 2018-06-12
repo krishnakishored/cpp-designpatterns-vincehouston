@@ -1,10 +1,4 @@
-#include<iostream>
-
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
-
+#include "CommonHeader.h"
 #include <ctime>
 
 // Purpose.  State design pattern - an FSM with two states and two events
@@ -21,8 +15,6 @@ using std::endl;
 //                     idiot           but you're
 //                                  still a victim,
 //                                   change to RED
-
-
 
 class FSM1 {
    class State* current;
@@ -49,6 +41,7 @@ public:
 class GreenLight : public State {
 public:
    GreenLight() { cout << "GREEN light\n"; }
+   virtual ~GreenLight(){cout << "GREEN light virtual dtor\n";}
    void suckUpMoney( int in, FSM1* fsm ) {
       cout << "      You're an idiot, ";
       State::suckUpMoney( in, fsm );
@@ -59,12 +52,13 @@ public:
 class RedLight : public State {
 public:
    RedLight() { cout << "RED light\n"; }
+   virtual ~RedLight(){cout << "RED light virtual dtor\n";}
    void suckUpMoney( int in, FSM1* fsm ) {
       cout << "      ";
       State::suckUpMoney( in, fsm );
       if (getTotal() >= 50) {
          fsm->setCurrent( new GreenLight );
-         delete this;
+         delete this;//delete called on non-final 'RedLight' that has virtual functions but non-virtual destructor [-Wdelete-non-virtual-dtor]
    }  }
    void carDrivesThrough( FSM1* fsm ) {
       cout << "Sirens!!  Heat-seeking missile!!  Confiscate net worth!!\n";
@@ -92,7 +86,9 @@ int getCoin() {
    return choices[rand() % 3];
 }
 
-int  main( void ) {
+int  main_state_2A( void ) 
+{
+  cout<<">>>>>>>> main_state_2A <<<<<<<<"<<endl; 
    srand( time(0) );
    FSM1 fsm;
    int ans;
@@ -160,7 +156,11 @@ FSM::FSM() {
 enum     Message { On, Off, Ack };
 Message  messageArray[10] = { On,Off,Off,Ack,Ack,Ack,Ack,On,Off,Off };
 
-int main_state_4( void ) {
+int main_state_2B( void ) 
+
+{
+   main_state_2A();
+   cout<<">>>>>>>> main_state_2B <<<<<<<<"<<endl; 
    FSM  fsm;
    for (int i = 0; i < 10; i++) {
       if (messageArray[i] == On)        fsm.on();
