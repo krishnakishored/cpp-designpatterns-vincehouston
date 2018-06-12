@@ -8,8 +8,7 @@
 // instead of a ptr to the base class.  The inheritance approach offers
 // more options and expressiveness.  The template approach offers mildly
 // better efficiency.
-#include<iostream>
-using std::cout;
+#include"CommonHeader.h"
 
 template<typename STRATEGY>
 class Stat {
@@ -63,6 +62,7 @@ public:
 };
 
 int main_strategy_7( void ) {
+      cout<<">>>>>>>> main_strategy_7 <<<<<<<<"<<endl; 
    const int NUM = 9;
    int       array[NUM];
    srand( time(0) );

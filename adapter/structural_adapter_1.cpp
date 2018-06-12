@@ -1,8 +1,6 @@
-#include <iostream>
-#include <stdio.h>
+#include "CommonHeader.h"
 #include <time.h>
-using std::cout;
-using std::endl;
+
 
 // Purpose.  Adapter
 //
@@ -75,9 +73,10 @@ class WimpyTime_2 {
 };          
 
 
-// int main_adapter( void )     
+
 int main_adapter_basic()
 {
+    cout<<">>>>>>>> main_adapter_basic <<<<<<<<"<<endl;   
    WimpyTime  newT;                     
    char*      ptr;                      
    ptr = newT.getTime();

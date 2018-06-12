@@ -1,20 +1,10 @@
 // Purpose.  Abstract Factory           
 //
-// Discussion.  Trying to maintain      
-// portability across multiple "plat-   
-// forms" routinely requires lots of    
-// preprocessor "case" stmts.  The
-// Factory pattern suggests defining    
-// a creation services interface in a   
-// Factory base class, and implement-   
-// ing each "platform" in a separate    
-// Factory derived class.               
+// Discussion.  Trying to maintain portability across multiple "platforms" routinely requires lots of preprocessor "case" stmts. 
+// The Factory pattern suggests defining a creation services interface in a Factory base class, and implementing each "platform" in a separate Factory derived class.               
 
-#include <iostream>    
-using std::cout;
-using std::endl;
-               
-                                        
+#include "CommonHeader.h"
+                
 class Widget { public:                  
    virtual void draw() = 0;             
 };                                      
@@ -48,8 +38,9 @@ void doThatWindow() {
 #endif
    w->draw(); }                         
                                         
-int main_abstractfactory_1( void )                       
-{                                       
+int main_abstractfactory_1( void )                
+{   
+  cout<<">>>>>>>> main_abstractfactory_1 <<<<<<<<"<<endl;                                       
    // create window, attach btn         
 #ifdef MOTIF                            
    Widget* w = new MotifBtn;            

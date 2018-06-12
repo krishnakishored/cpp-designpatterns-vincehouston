@@ -15,10 +15,7 @@
 // registered by the client.  Upon completion, the client retrieves the
 // end result from the builder.
 
-#include <iostream>
-#include <stdio.h>
-#include <string.h>
-using namespace std;
+#include"CommonHeader.h"     
 
 enum PersistenceType { File, Queue, Pathway };
 
@@ -57,24 +54,24 @@ protected:
 
 class UnixBuilder : public Builder {
 public:
-  UnixBuilder() { _result = new DistrWorkPackage( "Unix" ); }
+  UnixBuilder() { _result = new DistrWorkPackage( (char*)"Unix" ); } //ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
   void configureFile( char* name )    {
-    _result->setFile( "flatFile", name ); }
+    _result->setFile( (char*)"flatFile", name ); }
   void configureQueue( char* queue )  {
-    _result->setQueue( "FIFO", queue ); }
+    _result->setQueue( (char*)"FIFO", queue ); }
   void configurePathway( char* type ) {
-    _result->setPathway( "thread", type ); }
+    _result->setPathway( (char*)"thread", type ); }
 };
 
 class VmsBuilder : public Builder {
 public:
-  VmsBuilder() { _result = new DistrWorkPackage( "Vms" ); }
+  VmsBuilder() { _result = new DistrWorkPackage( (char*)"Vms" ); }
   void configureFile( char* name )    {
-    _result->setFile( "ISAM", name ); }
+    _result->setFile((char*) "ISAM", name ); }
   void configureQueue( char* queue )  {
-    _result->setQueue( "priority", queue ); }
+    _result->setQueue( (char*)"priority", queue ); }
   void configurePathway( char* type ) {
-    _result->setPathway( "LWP", type ); }
+    _result->setPathway(  (char*)"LWP", type ); }
 };
 
 
@@ -101,7 +98,10 @@ PersistenceAttribute  input[NUM_ENTRIES] = { {File, "state.dat"},
   {File,"config.sys"}, {Queue, "compute"}, {Queue, "log"},
   {Pathway, "authentication"}, {Pathway, "error processing"} };
 
-int main_builder_3() {
+int main_builder_3() 
+
+{
+  cout<<">>>>>>>> main_builder_3 <<<<<<<<"<<endl;       
   UnixBuilder  unixBuilder;
   VmsBuilder   vmsBuilder;
   Reader       reader;

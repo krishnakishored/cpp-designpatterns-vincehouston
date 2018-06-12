@@ -1,25 +1,18 @@
 // Purpose.  Strategy design pattern demo
 // 
-// Discussion.  The Strategy pattern suggests: encapsulating an algorithm
-// in a class hierarchy, having clients of that algorithm hold a pointer
-// to the base class of that hierarchy, and delegating all requests for
-// the algorithm to that "anonymous" contained object.  In this example,
-// the Strategy base class knows how to collect a paragraph of input and
-// implement the skeleton of the "format" algorithm.  It defers some
-// details of each individual algorithm to the "justify" member which is
-// supplied by each concrete derived class of Strategy.  The TestBed class
-// models an application class that would like to leverage the services of
-// a run-time-specified derived "Strategy" object.
+// Discussion.  The Strategy pattern suggests: encapsulating an algorithm in a class hierarchy, 
+// having clients of that algorithm hold a pointer to the base class of that hierarchy,
+// and delegating all requests for the algorithm to that "anonymous" contained object.  
 
-#include <iostream>
-#include<string>
+// In this example, the Strategy base class knows how to collect a paragraph of input and implement the skeleton of the "format" algorithm.  
+// It defers some details of each individual algorithm to the "justify" member which is supplied by each concrete derived class of Strategy. 
+// The TestBed class models an application class that would like to leverage the services of a run-time-specified derived "Strategy" object.
+
+#include"CommonHeader.h"
 #include<fstream>
 
-using std::cout;
-using std::string;
+
 using std::ifstream;
-using std::endl;
-using std::cin;
 using std::ios;
 
 
@@ -38,6 +31,7 @@ private:
 class Strategy {
 public:
    Strategy( int width ) : width_( width ) { }
+   virtual ~Strategy(){}
    void format() {
       char line[80], word[30];
       ifstream  inFile( "quote.txt", ios::in );
@@ -104,7 +98,9 @@ void TestBed::setStrategy( int type, int width ) {
 
 void TestBed::doIt() { strategy_->format(); }
 
-int main_strategy_8() {
+int main_strategy_8() 
+{
+   cout<<">>>>>>>> main_strategy_8 <<<<<<<<"<<endl; 
    TestBed  test;
    int      answer, width;
    cout << "Exit(0) Left(1) Right(2) Center(3): ";

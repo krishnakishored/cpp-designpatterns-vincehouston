@@ -1,9 +1,6 @@
 
 // Purpose.  No reuse
-
-#include <iostream>
-using namespace std;
-
+#include"CommonHeader.h"
 class One {
    void a() { cout << "a  "; }
    void b() { cout << "b  "; }
@@ -24,7 +21,9 @@ public:
    void execute() { a();  _2();  c();  _4();  e(); }
 };
 
-int main_templatemethod_3( void ) {
+int main_templatemethod_3( void ) 
+{
+   cout<<">>>>>>>> main_templatemethod_3 <<<<<<<<"<<endl;  
    One first;
    first.execute();
    cout << '\n';

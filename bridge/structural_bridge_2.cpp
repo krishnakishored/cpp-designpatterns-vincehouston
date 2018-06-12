@@ -4,14 +4,10 @@
 // Instead, create a wrapper (or interface) class that contains and delegates to a body (or implementation) class. 
 // Client can now specify at run-time exactly what s/he wants.    
                                         
-#include <iostream>                   
+#include "CommonHeader.h"              
 #include <iomanip>
-#include <stdio.h>
-#include <string>
 
-using std::endl;
-using std::cout;
-  
+
 // Purpose.  Bridge design pattern demo
 // 
 // Discussion.  The motivation is to decouple the Time interface from the Time implementation, 
@@ -90,7 +86,9 @@ public:
 };
 
 
-int main_bridge_vince() {
+int main_bridge_2() 
+{
+   cout<<">>>>>>>> main_bridge_1 <<<<<<<<"<<endl;                                       
    Time*  times[3];
    times[0] = new Time( 14, 30 );
    times[1] = new CivilianTime( 2, 30, 1 );

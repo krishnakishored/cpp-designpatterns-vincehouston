@@ -8,8 +8,7 @@
 // 7. Decorator derived classes delegate to base class AND add extra stuf
 // 8. Client has the responsibility to compose desired configurations
 
-#include <iostream>
-using namespace std;
+#include "CommonHeader.h"
 
 
 // 1. "lowest common denominator"
@@ -51,7 +50,9 @@ class ScrollDecorator : public Decorator1 {
       }
 };
 
-int main_decorator_Vince_1() {
+int main_decorator_1A() 
+{
+   cout<<">>>>>>>> main_decorator_1A <<<<<<<<"<<endl;
    // 8. Client has the responsibility to compose desired configurations
    Widget* aWidget = new BorderDecorator(
                         new BorderDecorator(
@@ -112,6 +113,7 @@ class AwithXYZ : public AwithX, public AwithY, public AwithZ { public:
 }  };
 
 int main_inheritance_amok() {
+      cout<<">>>>>>>> main_inheritance_amok <<<<<<<<"<<endl;
    AwithX    anX;
    AwithXY   anXY;
    AwithXYZ  anXYZ;
@@ -167,7 +169,11 @@ class Z : public D { public:
    /*virtual*/ void doIt() { D::doIt();  cout << 'Z'; }
 };
 
-int main_decorator_vince( void ) {
+int main_decorator_1B()
+{
+      main_decorator_1A();
+      main_inheritance_amok();
+      cout<<">>>>>>>> main_decorator_1B <<<<<<<<"<<endl;
    I* anX = new X( new A );
    I* anXY = new Y( new X( new A ) );
    I* anXYZ = new Z( new Y( new X( new A ) ) );
@@ -184,86 +190,3 @@ int main_decorator_vince( void ) {
 // X dtor   A dtor
 // Y dtor   X dtor   A dtor
 // Z dtor   Y dtor   X dtor   A dtor
-
-
-
-
-// // Purpose.  Decorator - encoding and decoding layers of header/packet/trailer
-class Interface { public:
-   virtual ~Interface() { }
-   virtual void write( string& ) = 0;
-   virtual void read(  string& ) = 0;
-};
-
-class Core : public Interface { public:
-   ~Core() { cout << "dtor-Core\n"; }
-   /*virtual*/ void write( string& b ) { b += "MESSAGE|"; }
-   /*virtual*/ void read( string& );
-};
-
-class Decorator : public Interface {
-   Interface* inner;
-public:
-   Decorator( Interface* c ) { inner = c; }
-   ~Decorator()              { delete inner; }
-   /*virtual*/ void write( string& b ) { inner->write( b ); }
-   /*virtual*/ void read(  string& b ) { inner->read( b ); }
-};
-
-class Wrapper : public Decorator {
-   string forward, backward;
-public:
-   Wrapper( Interface* c, string str ) : Decorator(c) {
-      forward = str;
-      string::reverse_iterator it;
-      it = str.rbegin();
-      for ( ; it != str.rend(); ++it)
-         backward += *it;
-   }
-   ~Wrapper() { cout << "dtor-" << forward << "  "; }
-   void write( string& );
-   void read(  string& );
-};
-
-int main_decorator_vince_2( void ) {
-   Interface* object = new Wrapper( new Wrapper( new Wrapper(
-                          new Core(), "123" ), "abc" ), "987" );
-   string buf;
-   object->write( buf );
-   cout << "main: " << buf << endl;
-   object->read( buf );
-   delete object;
-   return 0;
-}
-
-// main: 987]abc]123]MESSAGE|321]cba]789]
-// Wrapper: 987
-// Wrapper: abc
-// Wrapper: 123
-// Core: MESSAGE
-// Wrapper: 321
-// Wrapper: cba
-// Wrapper: 789
-// dtor-987  dtor-abc  dtor-123  dtor-Core
-
-void Core::read(string& b) {
-   int num = b.find_first_of( '|' );
-   cout << "Core: " << b.substr(0,num) << '\n';
-   b = b.substr(num+1);
-}
-
-void Wrapper::write( string& b ) {
-   b += forward + "]";
-   Decorator::write( b );
-   b += backward + "]";
-}
-
-void Wrapper::read( string& b ) {
-   int num = b.find_first_of( ']' );
-   cout << "Wrapper: " << b.substr(0,num) << '\n';
-   b = b.substr(num+1);
-   Decorator::read( b );
-   num = b.find_first_of( ']' );
-   cout << "Wrapper: " << b.substr(0,num) << '\n';
-   b = b.substr(num+1);
-}

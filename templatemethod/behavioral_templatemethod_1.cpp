@@ -1,13 +1,10 @@
 ﻿// Purpose.  Template Method            
                                         
-#include <iostream>                   
-                     
+            
+#include"CommonHeader.h"                    
 #include <time.h>     
 
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
+
                          
                                         
 class SortUp {  ///// Shell sort /////  
@@ -41,7 +38,8 @@ private:
 };                                      
                                         
 int main_templatemethod_1( void )                       
-{                                       
+{                                  
+   cout<<">>>>>>>> main_templatemethod_1 <<<<<<<<"<<endl;      
    const int NUM = 10;
    int       array[NUM];                
    time_t    t;                         

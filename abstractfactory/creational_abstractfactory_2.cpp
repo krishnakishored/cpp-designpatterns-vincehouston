@@ -1,6 +1,5 @@
-#include <iostream>
-using std::cout;
-using std::endl;
+
+#include "CommonHeader.h"
 
 class Widget { public:
    virtual void draw() = 0;
@@ -40,6 +39,7 @@ void doThatWindow() {
 
 int main_abstractfactory_2( void )
 {
+   cout<<">>>>>>>> main_abstractfactory_2 <<<<<<<<"<<endl;             
 #ifdef MOTIF
    factory = new MotifFactory;
 #else // WINDOWS

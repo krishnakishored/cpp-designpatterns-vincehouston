@@ -6,9 +6,7 @@
 // 2. Steps requiring peculiar implementations are "placeholders" in base class
 // 3. Derived classes implement placeholder methods
 
-#include <iostream>
-using namespace std;
-
+#include"CommonHeader.h"
 class Base {
    void a() { cout << "a  "; }
    void c() { cout << "c  "; }
@@ -32,7 +30,9 @@ class Two : public Base {
    /*virtual*/ void ph2() { cout << "4  "; }
 };
 
-int main_templatemethod_4( void ) {
+int main_templatemethod_4( void ) 
+{
+  cout<<">>>>>>>> main_templatemethod_4 <<<<<<<<"<<endl;  
    Base* array[] = { &One(), &Two() }; //message: taking the address of a temporary object of type 'Two' [-Waddress-of-temporary]
    for (int i=0; i < 2; i++) {
       array[i]->execute();

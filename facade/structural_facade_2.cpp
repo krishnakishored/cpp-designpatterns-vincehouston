@@ -2,13 +2,7 @@
 //                                    
 // Discussion.  Class Compute models a decimal digit adder module.  
 // An entire "subsystem" can be configured by linking as many of these modules as the desired precision requires.  
-
-#include <iostream>                   
-#include <string>                     
-
-using std::endl;
-using std::cout;
-using std::cin;
+#include "CommonHeader.h"
 
 // Purpose.  Facade design pattern demo.
 // 
@@ -112,7 +106,9 @@ private:
 	MisDepartment         _technician;
 };
 
-int main_facade_vince() {
+int main_facade_2() 
+{
+	cout<<">>>>>>>> main_facade_2 <<<<<<<<"<<endl; 
 	FacilitiesFacade  facilities;
 
 	facilities.submitNetworkRequest();

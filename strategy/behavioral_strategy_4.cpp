@@ -1,11 +1,4 @@
-
-#include<iostream>
-
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
-       
+#include "CommonHeader.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -35,7 +28,9 @@ public:
 
 // #include "strategy2.inc"
 
-int main_strategy_4( void ) {
+int main_strategy_4( void ) 
+{
+   cout<<">>>>>>>> main_strategy_4 <<<<<<<<"<<endl; 
    const int NUM = 9;
    int       array[NUM];
    time_t    t;

@@ -30,8 +30,7 @@ private:
    }                                    
 };
                                         
-// int main_strategy_1( void )                       
-int main()
+int main_strategy_1( void )                       
 {                                     
   cout<<">>>>>>>> main_strategy_1 <<<<<<<<"<<endl;   
    const int NUM = 9;                   

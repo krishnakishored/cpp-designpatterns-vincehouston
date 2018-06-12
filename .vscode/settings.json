@@ -2,6 +2,17 @@
     "files.associations": {
         "*.tcfg": "txt",
         "*.ipp": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "algorithm": "cpp",
+        "random": "cpp",
+        "bitset": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "list": "cpp",
+        "memory": "cpp",
+        "tuple": "cpp",
+        "ios": "cpp",
+        "ostream": "cpp",
+        "map": "cpp"
     }
 }

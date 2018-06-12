@@ -2,12 +2,14 @@
 // Purpose.  Composite and Prototype - lightweight persistence
 
 // #pragma warning( disable : 4786 )
-#include <iostream>
-#include <vector>
-#include <string>
+#include"CommonHeader.h"     
+
+
+
 #include <map>
 #include <fstream>
-using namespace std;
+using std::ifstream;
+using std::map;
 
 class Component { 
     public:
@@ -58,8 +60,10 @@ public:
          is >> str;
 }  }  };
 
-//segmentation fault ToDo: fix
-int main_combo_structural( void ) {
+//TODO: segmentation fault 
+int main_combo_structural( void ) 
+{
+    cout<<">>>>>>>> main_combo_structural <<<<<<<<"<<endl;
    Factory::add( "comp", new Composite() );
    Factory::add( "leaf", new Leaf() );
    ifstream is( "compositeCreate.txt" );

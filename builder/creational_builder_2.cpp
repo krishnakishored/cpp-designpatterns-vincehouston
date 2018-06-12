@@ -1,8 +1,6 @@
-#include<iostream>
+#include"CommonHeader.h"     
 #include<deque>
 
-
-using namespace std;
 
 class Array { public:                   
    virtual void traverse() = 0;         
@@ -76,7 +74,9 @@ public:
 private:
    Builder* bldr;
 };
-int main_builder_2( void ) {
+int main_builder_2( void ) 
+{
+  cout<<">>>>>>>> main_builder_2 <<<<<<<<"<<endl;       
    BuilderOne one;
    BuilderTwo two;
    Director dir( &one );

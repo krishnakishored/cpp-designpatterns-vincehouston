@@ -1,29 +1,15 @@
 // Purpose.  Strategy (template         
 //                     approach)        
-// A template can be used to configure  
-// a client with a Strategy.  This      
-// technique is appropriate if: 1) the
-// Strategy can be selected at com-     
-// pile-time, and 2) it does not have   
-// to be changed at run-time.  With a   
-// template, there is no need to spe-   
-// cify the interface in a SortImp      
-// base class.  The Stat class now has  
-// an instance of the sort object, in-  
-// stead of a ptr to the base class.    
-// The inheritance approach offers      
-// more options and expressiveness.     
-// The template approach offers mildly  
-// better efficiency.             
+// A template can be used to configure a client with a Strategy.  
+// This technique is appropriate if: 1) the Strategy can be selected at compile-time, and 
+// 2) it does not have to be changed at run-time.  
+// With a  template, there is no need to specify the interface in a SortImp base class.  
+// The Stat class now has an instance of the sort object, instead of a ptr to the base class.    
+// The inheritance approach offers more options and expressiveness.     
+// The template approach offers mildly better efficiency.             
 
 
-#include<iostream>
-
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
-             
+#include "CommonHeader.h"
                                         
 class Stat {     /* Bubble sort */      
 public:
@@ -49,7 +35,9 @@ private:
       cout << endl;                     
    }                                    
 };                                      
-int main_strategy_2( void ) {                     
+int main_strategy_3( void ) 
+{ 
+  cout<<">>>>>>>> main_strategy_3 <<<<<<<<"<<endl;                     
    const int NUM = 9;                   
    int       array[NUM];                
    time_t    t;                         

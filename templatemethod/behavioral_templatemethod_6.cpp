@@ -10,8 +10,7 @@
 // 5. Derived classes can override implemented methods
 // 6. Derived classes can override and "call back to" base class methods
 
-#include <iostream>
-using namespace std;
+#include"CommonHeader.h"
 
 class A {
 public:
@@ -58,7 +57,9 @@ class C : public B {
       A::stepFor();
 }  };
 
-int main_templatemethod_6( void ) {
+int main_templatemethod_6( void ) 
+{ 
+   cout<<">>>>>>>> main_templatemethod_6 <<<<<<<<"<<endl;  
    C algorithm;
    algorithm.findSolution();
    return 0;

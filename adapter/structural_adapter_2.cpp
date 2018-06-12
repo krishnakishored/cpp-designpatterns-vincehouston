@@ -5,11 +5,8 @@
 // An "adapter" class is defined that publicly inherits the interface of the abstract class, and privately inherits the implementation of the legacy component.  
 // This adapter class "maps" or "impedance matches" the new interface to the old implementation.
 
-#include <iostream>
-#include <stdio.h>
+#include "CommonHeader.h"
 #include <time.h>
-using std::cout;
-using std::endl;
 
 typedef int Coordinate;
 typedef int Dimension;
@@ -55,6 +52,7 @@ public:
 
 int main_legacy() 
 {
+  cout<<">>>>>>>> main_legacy <<<<<<<<"<<endl; 
    Rectangle*  r = new RectangleAdapter( 120, 200, 60, 40 );
    r->draw();
    return 0;
@@ -132,9 +130,10 @@ ExecuteInterface** initialize()
 int main_external_polymorphism( void ) 
 {
 
-   //
+  
    main_legacy();
-
+   cout<<">>>>>>>> main_external_polymorphism <<<<<<<<"<<endl; 
+   
    //external_polymorphism   
    ExecuteInterface** objects = initialize();
 

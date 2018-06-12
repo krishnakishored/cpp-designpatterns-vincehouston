@@ -34,6 +34,7 @@ int H1::count_ = 1;
 
 int main_chainofresponsibility_1( void ) 
 {                  
+  cout<<">>>>>>>> main_chainofresponsibility_1 <<<<<<<<"<<endl;     
    const int TOTAL = 2;              
    H1* list[TOTAL] = { new H1, new H1};
                                      

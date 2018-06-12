@@ -1,14 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
 // Purpose.  Template Method design pattern demo.
 // 
 // Discussion.  The "template method" establishes the steps to be
@@ -21,10 +12,7 @@
 // "calling-back" to the base class to leverage its implementation, and
 // then adding its own peculiar behavior.
 
-#include <iostream>
-
-using std::cout;
-using std::endl;
+#include"CommonHeader.h"
 
 class IncompleteAlgorithm {
 public:
@@ -52,7 +40,9 @@ class FillInTheTemplate : public IncompleteAlgorithm {
       cout << "FillInTheTemplate::stepFour" << endl; }
 };
 
-int main_templatemethod_7() {
+int main_templatemethod_7() 
+{
+   cout<<">>>>>>>> main_templatemethod_7 <<<<<<<<"<<endl;  
    FillInTheTemplate  theThingToDo;
    theThingToDo.doIt();
    return 0;

@@ -4,13 +4,8 @@
 // Instead, create a wrapper (or interface) class that contains and delegates to a body (or implementation) class. 
 // Client can now specify at run-time exactly what s/he wants.    
                                         
-#include <iostream>                   
+#include "CommonHeader.h"
 #include <iomanip>
-#include <stdio.h>
-#include <string>
-
-using std::endl;
-using std::cout;
                                         
 class Date {                                                                    
     public:
@@ -37,8 +32,9 @@ void Date::output() {
    cout << buf << "  "; 
 }                                         
                                         
-int main_2( void )                       
-{                                       
+int main_bridge_1( void )                       
+{
+   cout<<">>>>>>>> main_bridge_1 <<<<<<<<"<<endl;                                       
    Date  d1( 1996, 2, 29 );             
    Date  d2( 1996, 2, 30 );             
    d1.output();                         

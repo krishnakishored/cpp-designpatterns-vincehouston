@@ -6,9 +6,7 @@
 // 4. All "container" classes couple themselves to the interface (recursive composition, Composite "has a" set of children up the "is a" hierarchy)
 // 5. "Container" classes use polymorphism as they delegate to their children
 
-#include <iostream>
-#include <vector>
-using namespace std;
+#include"CommonHeader.h"     
 
 // 2. Create an "interface" (lowest common denominator)
 class Component { public: virtual void traverse() = 0; };
@@ -32,7 +30,9 @@ public:
       }  
 };
 
-int main_1( void ) {
+int main_composite_1A( void ) 
+{
+   cout<<">>>>>>>> main_composite_1A <<<<<<<<"<<endl;  
    Composite1 containers[4];
 
    for (int i=0; i < 4; i++)
@@ -91,7 +91,10 @@ class Column : public Composite { public:
       Composite::traverse();
 }  };
 
-int main_2( void ) {
+int main_composite_1B( void ) 
+{
+      main_composite_1A() ;
+      cout<<">>>>>>>> main_composite_1B <<<<<<<<"<<endl;
       Row    first( 1 );                     
       Column second( 2 );                  
       Column third( 3 );                   

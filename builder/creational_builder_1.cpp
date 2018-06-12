@@ -7,11 +7,9 @@
 // mon input and parsing have been de-  
 // fined in the Director class.  The D  
 // constructs, the B returns result.    
-#include<iostream>
-#include<string>     
+#include"CommonHeader.h"     
 #include<deque>
-                  
-using namespace std;
+using std::deque;
 
 class Array {                           
 public:                                 
@@ -30,7 +28,9 @@ private:
 string in[] = { "fa", "bb", "fc",       
    "bd", "fe", "bf", "fg", "bh" };      
                                         
-int main_builder_1( void ) {                     
+int main_builder_1( void ) 
+{
+   cout<<">>>>>>>> main_builder_1 <<<<<<<<"<<endl;                     
    Array  list;                         
    for (int i=0; i < 8; i++)
       if (in[i][0] == 'f')              

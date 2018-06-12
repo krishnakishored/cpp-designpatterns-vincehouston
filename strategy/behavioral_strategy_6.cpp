@@ -9,8 +9,7 @@
 // unknown implementation, and the end-user of Stat can affect
 // the choice of implementation.
 
-#include <iostream>
-using std::cout;
+#include"CommonHeader.h"
 
 class SortImpl {
 public:
@@ -75,7 +74,9 @@ private:
    SortImpl*  m_impl;
 };
 
-int main_strategy_6( void ) {
+int main_strategy_6( void ) 
+{
+      cout<<">>>>>>>> main_strategy_6 <<<<<<<<"<<endl; 
    const int NUM = 9;
    int       array1[NUM], array2[NUM];
    srand( time(0) );

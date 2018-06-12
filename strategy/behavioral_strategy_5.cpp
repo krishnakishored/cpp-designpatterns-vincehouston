@@ -14,8 +14,7 @@
 // encapsulate the hierarchy, and make them interchangeable" via
 // an abstract base class.
 
-#include <iostream>
-using std::cout;
+#include "CommonHeader.h"
 
 class Stat {
 public:
@@ -45,7 +44,9 @@ private:
    }
 };
 
-int main_strategy_5( void ) {
+int main_strategy_5( void ) 
+{
+   cout<<">>>>>>>> main_strategy_5 <<<<<<<<"<<endl; 
    const int NUM = 9;
    int       array[NUM];
    srand( time(0) );

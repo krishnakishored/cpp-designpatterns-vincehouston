@@ -1,1 +1,1 @@
-add_library(libdecorator structural_decorator_vince.cpp)
+add_library(libdecorator structural_decorator_1.cpp structural_decorator_2.cpp)

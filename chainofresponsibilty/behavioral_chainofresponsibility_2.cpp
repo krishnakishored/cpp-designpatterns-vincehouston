@@ -45,7 +45,9 @@ class Handler3 : public Base { public:
       else cout << "H3 handled " << i << "  ";
 }  };
 
-int main_chainofresponsibilty_3( void ) {
+int main_chainofresponsibilty_2( void )
+ {
+cout<<">>>>>>>> main_chainofresponsibility_2 <<<<<<<<"<<endl;     
    srand( time( 0 ) );
    Handler1 root;   Handler2 two;   Handler3 thr;
    root.add( &two );   root.add( &thr );
@@ -110,8 +112,9 @@ public:
    /*virtual*/ void volunteer() { Component::volunteer(); }
 };
 
-int main_chainofresponsibilty_4( void ) 
+int main_chainofresponsibilty_3( void ) 
 {
+   cout<<">>>>>>>> main_chainofresponsibility_3 <<<<<<<<"<<endl;     
    srand( time( 0 ) );                             // 1
    Primitive seven( 7 );                           // |
    Primitive six( 6, &seven );                     // +-- 2
@@ -184,7 +187,11 @@ public:
 int   Link::theBid = 999;            // 4. Current bid and bidder
 Link* Link::bidder = 0;
 
-int main_chainofresponsibilty_5( void ) {
+int main_chainofresponsibilty_4( void ) 
+{
+      main_chainofresponsibilty_2();
+      main_chainofresponsibilty_3();
+      cout<<">>>>>>>> main_chainofresponsibility_4 <<<<<<<<"<<endl;     
    Link chain( 1 );
    for (int i=2; i < 7; i++)
       chain.addLast( new Link( i ) );

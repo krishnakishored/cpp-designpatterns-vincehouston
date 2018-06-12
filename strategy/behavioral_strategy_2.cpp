@@ -1,9 +1,4 @@
-﻿#include<iostream>
-
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
+﻿#include "CommonHeader.h"
 
 class SortImp;
 
@@ -21,8 +16,10 @@ private:
    SortImp*  imp_;
 };
 
-class SortImp { public:
+class SortImp { 
+  public:
    virtual void sort( int[], int ) = 0;
+   //virtual ~SortImp(){} //segmentation fault
 };
 
 class SortBubble : public SortImp {
@@ -38,8 +35,11 @@ public:
 // #include "strategy2.inc"
 
 Stat::Stat() { imp_ = new SortBubble; }
-void Stat::upGrade()   { delete imp_; //message: delete called on 'SortImp' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
-   imp_ = new SortShell; }
+void Stat::upGrade()   
+{
+   delete imp_; //TODO: delete called on 'SortImp' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+   imp_ = new SortShell; 
+}
 void Stat::downGrade() { delete imp_;
    imp_ = new SortBubble; }
 void Stat::readVector(int v[], int n) {
@@ -49,6 +49,7 @@ void Stat::readVector(int v[], int n) {
 
 int main_strategy_2( void )
 {
+  cout<<">>>>>>>> main_strategy_2 <<<<<<<<"<<endl; 
    const int NUM = 9;
    int       array[NUM];
    time_t    t;

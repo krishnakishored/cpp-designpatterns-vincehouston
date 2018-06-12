@@ -1,23 +1,11 @@
-// Discussion.  On the left, we're
-// starting with 2 sorts that are very
-// similar.  If we could "customize" a
-// single sort implementation, we could
-// enjoy reuse.  "Template Method de-
-// fines an algorithm in terms of ab-
-// stract operations that subclasses
-// override to provide concrete beha-
-// vior."  Here, doIt() is the algo-
-// rithm, and needSwap() is the ab-
-// stract operation.
+// Discussion.  On the left, we're starting with 2 sorts that are very similar.  If we could "customize" a
+// single sort implementation, we could enjoy reuse.  "Template Method defines an algorithm in terms of abstract operations that subclasses
+// override to provide concrete behavior."  Here, doIt() is the algorithm, and needSwap() is the abstract operation.
 
-#include <iostream>                   
+#include"CommonHeader.h"          
                      
 #include <time.h>     
 
-using std::cout;
-using std::vector;
-using std::cin;
-using std::endl;
 
 class Sort {  ////// Shell sort //////
 public:
@@ -46,6 +34,7 @@ class SortDown : public Sort {
 };
 int main_templatemethod_2( void )
 {
+   cout<<">>>>>>>> main_templatemethod_2 <<<<<<<<"<<endl;  
    const int NUM = 10;
    int       array[NUM];
    time_t    t;

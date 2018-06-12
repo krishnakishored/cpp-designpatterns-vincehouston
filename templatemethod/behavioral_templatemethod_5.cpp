@@ -8,9 +8,7 @@
 // 2. Steps requiring peculiar implementations are "placeholders" in base class
 // 3. Derived classes implement placeholder methods
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include"CommonHeader.h"
 
 class StandardAlgorithm {
    // 3. Steps requiring peculiar implementations are "placeholders" in base class
@@ -46,7 +44,9 @@ class Numeric : public StandardAlgorithm {
       else return false;
 }  };
 
-int main_templatemethod_5( void ) {
+int main_templatemethod_5( void ) 
+{
+   cout<<">>>>>>>> main_templatemethod_5 <<<<<<<<"<<endl;  
    StandardAlgorithm* types[] = { &Alphabetic(), &Numeric() }; //message: taking the address of a temporary object of type 'Alphabetic' [-Waddress-of-temporary]
    char buf[20];
    while (true) {
