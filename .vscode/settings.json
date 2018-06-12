@@ -13,6 +13,7 @@
         "tuple": "cpp",
         "ios": "cpp",
         "ostream": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "iostream": "cpp"
     }
 }

@@ -1,6 +1,6 @@
 #include"CommonHeader.h"     
 #include<deque>
-
+using std::deque;
 
 class Array { public:                   
    virtual void traverse() = 0;         

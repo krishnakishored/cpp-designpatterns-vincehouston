@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+#include "CommonHeader.h"   
+
 class Stooge {
 public:
    virtual void slapStick() = 0;
@@ -10,7 +10,9 @@ public:
    static Stooge* create( int );
 };
 
-int main_factorymethod_2( void ) {
+int main_factorymethod_2( void ) 
+{
+  cout<<">>>>>>>> main_factorymethod_2 <<<<<<<<"<<endl;      
    Stooge*  roles[10];
    int      in, j, i = 0;
    while (1) {

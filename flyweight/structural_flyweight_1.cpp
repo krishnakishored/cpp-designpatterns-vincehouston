@@ -8,11 +8,7 @@
 // In this example, the "X" state is considered shareable (within each row anyways), and the "Y" state has been externalized 
 // (it is supplied by the client when report() is called).                             
                                         
-#include <iostream> 
-#include <string>
-
-using std::cout;
-using std::endl;                  
+#include "CommonHeader.h"            
                                         
 const int X = 6;                        
 const int Y = 10;                       
@@ -37,7 +33,8 @@ int Gazillion1::num_ = 0;
                                         
 // int main_flyweight_1( void )   
 int main_without_flyweight()                       
-{                                       
+{     
+   cout<<">>>>>>>> main_without_flyweight <<<<<<<<"<<endl;                                      
    Gazillion1  matrix[X][Y];
    for (int i=0; i < X; i++)            
    {                                    

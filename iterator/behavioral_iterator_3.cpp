@@ -5,14 +5,7 @@
 // The replicated data are not Node objects, they are lightweight pointers.  
 // The array is initialized using a recursive method similar to traverse(Node*).
 
-#include <iostream>
-#include <ctime>
-#include<vector>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::vector;
+#include "CommonHeader.h"    
 
 class Iterator1;
 
@@ -62,7 +55,8 @@ public:
    BST::Node* currentItem() { return array[index]; }
 };
 
-int main_interpreter_3( void ) {
+int main_interpreter_3A( void ) {
+      cout<<">>>>>>>> main_interpreter_3A <<<<<<<<"<<endl;
    srand( time( 0 ) );
    BST  tree;
    for (int i=0; i < 20; i++) tree.add( rand() % 20 + 1 );
@@ -76,6 +70,7 @@ int main_interpreter_3( void ) {
    for (it->first(); ! it->isDone(); it->next())
       cout << it->currentItem()->value << ' ';
    cout << '\n';
+   return 0;
 }
 
 // traverse: 1 2 3 7 8 9 9 10 11 11 13 14 14 14 15 17 18 19 19 20
@@ -196,7 +191,11 @@ public:
 
 Iterator* Composite::createIterator() { return new Iterator( this ); }
 
-int main_iterator_6( void ) {
+int main_interpreter_3B( void )
+
+{
+      main_interpreter_3A();
+      cout<<">>>>>>>> main_interpreter_3B <<<<<<<<"<<endl;
    Composite containers[4];
    for (int i=0; i < 4; i++)
       for (int j=0; j < 3; j++)

@@ -1,26 +1,13 @@
 // Purpose.  Factory Method             
 //           creation via inheritance   
 //
-// Discussion.  The architect has done  
-// an admirable job of decoupling the   
-// client from Stooge concrete derived  
-// classes, and, exercising polymor-    
-// phism.  But there remains coupling
-// where instances are actually         
-// created.  If we design an "extra     
-// level of indirection" (a "factory    
-// method") and have clients use it     
-// (instead of "new"), then the last    
-// bit of coupling goes away.  The
-// "factory method" (aka "virtual       
-// constructor") can be defined in the  
-// Stooge base class, or, in a          
-// separate "factory" class.  Note
-// that main() is no longer dependent   
-// on Stooge derived classes.           
+// Discussion.  The architect has done an admirable job of decoupling the  client from Stooge concrete derived  
+// classes, and, exercising polymorphism.  But there remains coupling where instances are actually created.   
+// If we design an "extra level of indirection" (a "factory method") and have clients use it (instead of "new"), then the last    
+// bit of coupling goes away.  The "factory method" (aka "virtual constructor") can be defined in the  
+// Stooge base class, or, in a separate "factory" class.  Note that main() is no longer dependent on Stooge derived classes.           
                                         
-#include <iostream>                     
-using namespace std;                    
+#include "CommonHeader.h"                  
                                         
 class Stooge { public:                  
    virtual void slapStick() = 0;        
@@ -42,7 +29,9 @@ class Curly : public Stooge { public:
          << endl; }                     
 };                                      
                                         
-int main_factorymethod_1( void ) {                     
+int main_factorymethod_1( void ) 
+{
+      cout<<">>>>>>>> main_factorymethod_1 <<<<<<<<"<<endl;                      
    Stooge*  roles[10];
    int      in, j, i = 0;               
                                         

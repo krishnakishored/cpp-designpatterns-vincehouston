@@ -6,13 +6,7 @@
 // too much typing.  This design uses nothing but "intuitive" operators.
 // Notice also that no createIterator() was specified.  The user creates these
 // iterators as local variables, and no clean-up is necessary.
-
-#include <iostream>
-using std::cout;
-using std::cin;
-using std::endl;
-
-
+#include "CommonHeader.h"    
 class Stack1 {
    int items[10];
    int sp;
@@ -41,7 +35,9 @@ bool operator==( const Stack1& l, const Stack1& r ) {
    return ! itl() && ! itr();
 }
 
-int main_iterator_3( void ) {
+int main_iterator_2A( void ) 
+{
+    cout<<">>>>>>>> main_iterator_2A <<<<<<<<"<<endl;  
    Stack1  s1;   int  i;
    for (i=1; i < 5; i++) s1.push(i);
    Stack1  s2( s1 ), s3( s1 ), s4( s1 ), s5( s1 );
@@ -51,6 +47,7 @@ int main_iterator_3( void ) {
    cout << "1 == 3 is "<< (s1 == s3) << endl;
    cout << "1 == 4 is "<< (s1 == s4) << endl;
    cout << "1 == 5 is "<< (s1 == s5) << endl;
+   return 0;
 }
 
 // 1 == 2 is 1
@@ -105,7 +102,11 @@ bool operator==( const Stack& l, const Stack& r ) {
    return ans;
 }
 
-int main_iterator_4( void ) {
+int main_iterator_2B( void ) 
+
+{
+    main_iterator_2A();
+    cout<<">>>>>>>> main_iterator_2B <<<<<<<<"<<endl;  
    Stack  s1;   int  i;
    for (i=1; i < 5; i++) s1.push(i);
    Stack  s2( s1 ), s3( s1 ), s4( s1 ), s5( s1 );

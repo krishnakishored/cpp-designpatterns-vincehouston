@@ -8,11 +8,7 @@
 // In this example, the "X" state is considered shareable (within each row anyways), and the "Y" state has been externalized 
 // (it is supplied by the client when report() is called).                             
                                         
-#include <iostream> 
-#include <string>
-
-using std::cout;
-using std::endl;                  
+#include "CommonHeader.h"               
   
 // Purpose.  Flyweight design pattern demo.
 // 
@@ -113,7 +109,9 @@ public:
 };
 
 
-int main_flyweight_1() {
+int main_flyweight_1() 
+{
+	cout<<">>>>>>>> main_flyweight_1 <<<<<<<<"<<endl;  
 	DialogBox* dialogs[2];
 	dialogs[0] = new FileSelection(
 		FlyweightFactory::getIcon((char*)"go"),

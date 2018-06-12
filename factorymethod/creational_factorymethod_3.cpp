@@ -2,24 +2,14 @@
 
 // Purpose.  Factory Method design pattern demo.
 // 
-// Discussion.  Frameworks are applications (or subsystems) with "holes"
-// in them.  Each framework specifies the infrastructure, superstructure,
-// and flow of control for its "domain", and the client of the framework
-// may: exercise the framework's default behavior "as is", extend selected
-// pieces of the framework, or replace selected pieces.  The Factory
-// Method pattern addresses the notion of "creation" in the context of
-// frameworks.  In this example, the framework knows WHEN a new document
-// should be created, not WHAT kind of Document to create.  The
-// "placeholder" Application::CreateDocument() has been declared by the
-// framework, and the client is expected to "fill in the blank" for
-// his/her specific document(s).  Then, when the client asks for
-// Application::NewDocument(), the framework will subsequently call the
-// client's MyApplication::CreateDocument().
+// Discussion.  Frameworks are applications (or subsystems) with "holes" in them.  Each framework specifies the infrastructure, superstructure,
+// and flow of control for its "domain", and the client of the framework may: exercise the framework's default behavior "as is", 
+// extend selected pieces of the framework, or replace selected pieces.  The Factory Method pattern addresses the notion of "creation" in the context of
+// frameworks.  In this example, the framework knows WHEN a new document should be created, not WHAT kind of Document to create.  The
+// "placeholder" Application::CreateDocument() has been declared by the framework, and the client is expected to "fill in the blank" for his/her specific document(s). 
+// Then, when the client asks for Application::NewDocument(), the framework will subsequently call the client's MyApplication::CreateDocument().
 
-#include <iostream>
-using std::cout;
-using std::endl;     
-using std::cin;  
+#include "CommonHeader.h"   
 
 /* Abstract base class declared by framework */
 class Document {
@@ -77,13 +67,16 @@ public:
     return new MyDocument( fn ); }
 };
 
-int main_factorymethod_3() {
+int main_factorymethod_3() 
+{
+  cout<<">>>>>>>> main_factorymethod_3 <<<<<<<<"<<endl;      
   /* Client's customization of the Framework */
   MyApplication  myApp;
 
   myApp.NewDocument( (char*)"foo" );
   myApp.NewDocument((char*) "bar" );
   myApp.ReportDocs();
+  return 0;
 }
 
 // Application: ctor

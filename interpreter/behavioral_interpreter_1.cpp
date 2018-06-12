@@ -1,13 +1,7 @@
 ﻿// Purpose.  Interpreter          
 //                                
 // Define a grammar for a language and map each rule to a class.
-                                  
-#include <iostream>             
-#include <string>     
-
-using std::cout;
-using std::endl;     
-using std::cin;  
+#include "CommonHeader.h"    
           
                                   
 int sub(char* i, char* o, char* c) 
@@ -119,8 +113,9 @@ class Noun { public:
     NP np;  Verb verb;
  };
 
- int main_interpreter_1( void )
+int main_interpreter_1( void )
  {
+     cout<<">>>>>>>> main_interpreter_1 <<<<<<<<"<<endl;                    
     Sent S;  char* t[] = {(char *)"ace",(char *)"bdh",
                  (char *) "abc",(char *)"ceg",(char *)"bcfgh"};
     char  i[10], o[10];

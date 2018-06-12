@@ -14,12 +14,7 @@
 //   five ::= 'D' | 'L' | 'V'
 //   one  ::= 'M' | 'C' | 'X' | 'I'
 
-#include <iostream>
-#include <string>
-
-using std::cout;
-using std::endl;     
-using std::cin;  
+#include "CommonHeader.h"    
 
 class Thousand;  class Hundred;  class Ten;  class One;
 
@@ -50,7 +45,7 @@ public:
     }  // remove leading chars processed
 
 protected:  // cannot be pure virtual because client asks for instance
-   virtual char  one() { }  //message: control reaches end of non-void function [-Wreturn-type]    
+   virtual char  one() { }  //TODO: control reaches end of non-void function [-Wreturn-type]    
    virtual char* four() { } 
    virtual char  five() { }      
    virtual char* nine() { }
@@ -111,7 +106,9 @@ int RNInterpreter::interpret( char* input ) {
    return total; }
 
 
-int main_interpreter_2() {
+int main_interpreter_2() 
+{
+  cout<<">>>>>>>> main_interpreter_2 <<<<<<<<"<<endl;   
    RNInterpreter interpreter;
    char          input[20];
    cout << "Enter Roman Numeral: ";

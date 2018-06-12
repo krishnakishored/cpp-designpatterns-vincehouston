@@ -21,10 +21,7 @@
 // 3. Clients ask the container object to create an iterator object
 // 4. Clients use the first(), isDone(), next(), and currentItem() protocol
 
-#include <iostream>
-using std::cout;
-using std::cin;
-using std::endl;
+#include "CommonHeader.h"    
 
 class StackIter;
 
@@ -65,7 +62,9 @@ bool operator==( const Stack& l, const Stack& r ) {
    return ans;
 }
 
-int main_iterator_1() {
+int main_iterator_1() 
+{
+cout<<">>>>>>>> main_iterator_1 <<<<<<<<"<<endl;  
    Stack  s1;
    for (int i=1; i < 5; i++) s1.push(i);
    Stack  s2( s1 ), s3( s1 ), s4( s1 ), s5( s1 );
