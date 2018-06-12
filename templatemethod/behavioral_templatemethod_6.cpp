@@ -10,7 +10,7 @@
 // 5. Derived classes can override implemented methods
 // 6. Derived classes can override and "call back to" base class methods
 
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 
 class A {
 public:

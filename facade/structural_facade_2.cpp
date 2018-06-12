@@ -2,7 +2,7 @@
 //                                    
 // Discussion.  Class Compute models a decimal digit adder module.  
 // An entire "subsystem" can be configured by linking as many of these modules as the desired precision requires.  
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 // Purpose.  Facade design pattern demo.
 // 

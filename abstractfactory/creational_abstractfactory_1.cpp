@@ -3,7 +3,7 @@
 // Discussion.  Trying to maintain portability across multiple "platforms" routinely requires lots of preprocessor "case" stmts. 
 // The Factory pattern suggests defining a creation services interface in a Factory base class, and implementing each "platform" in a separate Factory derived class.               
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
                 
 class Widget { public:                  
    virtual void draw() = 0;             

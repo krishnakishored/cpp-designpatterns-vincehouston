@@ -12,7 +12,7 @@
 // "calling-back" to the base class to leverage its implementation, and
 // then adding its own peculiar behavior.
 
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 
 class IncompleteAlgorithm {
 public:

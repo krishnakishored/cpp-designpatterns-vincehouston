@@ -9,7 +9,7 @@
 // 3. Pass each object to its future "sender"
 // 4. When the sender is ready to callback to the receiver, it calls execute()
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 class Person;
 
@@ -48,9 +48,9 @@ public:                        //    tion promoted to "full object status"
       cout << name << " is listening" << endl;
 }  };
 
-int main_command_2A( void )
+int main_command_2( void )
 {
-   cout<<">>>>>>>> main_command_2A <<<<<<<<"<<endl;  
+   cout<<">>>>>>>> main_command_2 <<<<<<<<"<<endl;  
    // Fred will "execute" Barney which will result in a call to passOn()
    // Barney will "execute" Betty which will result in a call to gossip()
    // Betty will "execute" Wilma which will result in a call to listen()

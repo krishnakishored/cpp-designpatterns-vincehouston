@@ -1,19 +1,14 @@
  // Purpose.  Singleton                  
  //                                      
- // Discussion.  On the left, a global   
- // object is architected to require     
- // lazy initialization (not inited un-  
- // til it is needed).  This requires    
- // all users of the object to test and  
- // potentially allocate the pointer.    
- // Singleton suggests making the class  
- // itself responsible for creating,     
- // maintaining, and providing global    
- // access to its own single instance.
-                                         
- #include <iostream>         
- using namespace std;          
-                                         
+ // Discussion.  On the left, a global object is architected to require lazy initialization (not inited until it is needed).
+ // This requires all users of the object to test and  potentially allocate the pointer.
+ //     
+ // Singleton suggests making the class itself responsible for creating, maintaining, and providing global access to its own single instance.
+ // 
+
+
+#include "CommonInclude.h"
+
  class GlobalClass {                     
  public:                                 
     GlobalClass( int v=0 ) {             
@@ -47,14 +42,16 @@
        globalObj->getValue() << endl;    
  }                                       
                                          
- int main_singleton_1( void )                       
+int main_singleton_1( void )    
  {                                       
+   cout<<">>>>>>>> main_singleton_1 <<<<<<<<"<<endl;  
     if ( ! globalObj )                   
        globalObj = new GlobalClass;
     cout << "main: globalObj is " <<     
        globalObj->getValue() << endl;    
     foo();                               
-    bar();                               
+    bar();  
+    return 0;                             
  }                                       
                                          
  // main: globalObj is 0                 

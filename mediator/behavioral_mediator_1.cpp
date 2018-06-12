@@ -4,9 +4,7 @@
 // On the right: a "mediating" List class focuses and simplifies all the administrative responsibilities,
 // and the recursion (which does not scale up well) has been eliminated.
                                         
-#include <iostream>          
-using std::cout;
-using std::endl;         
+#include "CommonInclude.h"     
                                         
 class Node {                            
 public:                                 
@@ -131,6 +129,7 @@ int main_mediator_1B( void )
    lst.traverse();
    lst.removeNode( 11 );
    lst.traverse();
+   return 0;
 }
 
 // 11  22  33  44

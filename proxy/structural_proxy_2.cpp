@@ -1,16 +1,14 @@
 // Purpose.  Direct coupling, lots of start-up and shut-down overhead
-
-#include <iostream>
-#include <string>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
+#include "CommonInclude.h" 
 
 // Purpose.  "->" and "." operators give different results
 
-class Subject { public: virtual void execute() = 0; };
+class Subject 
+{
+public: 
+      virtual void execute() = 0; 
+      virtual ~Subject(){}
+};
 
 class RealSubject : public Subject {
    string str;
@@ -43,7 +41,9 @@ public:
    }
 };
 
-int main_proxy_3( void ) {
+int main_proxy_2A( void ) 
+{
+      cout<<">>>>>>>> main_proxy_2A <<<<<<<<"<<endl;  
    ProxySubject obj( string( "the quick brown fox jumped over the dog" ) );
    obj->execute();
    obj.execute();
@@ -90,7 +90,9 @@ public:
    int getBalance() { return realThing.getBalance(); }
 };
 
-int main_proxy_4( void ) {
+int main_proxy_2B( void ) 
+{
+      cout<<">>>>>>>> main_proxy_2B <<<<<<<<"<<endl;  
    PettyCash  pc;
    Person     workers[4];
    for (int i=0, amount=100; i < 4; i++, amount += 100)
@@ -136,7 +138,11 @@ public:
    int    getAge()    { return age; }//32 ??
 };
 
-int main_proxy_2( void ) {
+int main_proxy_2C( void ) 
+{ 
+   main_proxy_2A();
+   main_proxy_2B(); 
+   cout<<">>>>>>>> main_proxy_2C <<<<<<<<"<<endl;  
    POP<Person2> ph( "Tom");
    cout << "policy holder is " << ph->getName() << ", age is " << ph->getAge() << '\n';
    return 0;

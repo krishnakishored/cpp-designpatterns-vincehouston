@@ -3,9 +3,7 @@
 // Purpose.  Undesireable design - double dispatch - doing the right thing based
 // on the type of two objects
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include "CommonInclude.h"
 
 class Request { public: virtual string getType() = 0; };
 
@@ -42,7 +40,9 @@ void R1::reqOneMethod( P2* p ) { p->procTwoMethod(); cout << "request one\n"; }
 void R2::reqTwoMethod( P1* p ) { p->procOneMethod(); cout << "request two\n"; }
 void R2::reqTwoMethod( P2* p ) { p->procTwoMethod(); cout << "request two\n"; }
 
-int main_visitor_8( void ) {
+int main_visitor_8( void ) 
+{
+   cout<<">>>>>>>> main_visitor_8 <<<<<<<<"<<endl; 
    Processor* handlers[] = { new P1(), new P2() };
    Request*   commands[] = { new R1(), new R2() };
    for (int i=0; i < 2; i++)

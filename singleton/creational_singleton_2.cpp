@@ -1,17 +1,8 @@
-// New design.  "globalObj" is now a
-// private static data member of its
-// own class.  Global access is pro-
-// vided by the public static member
-// function inst().  And the lazy
-// initialization code is encapsu-
-// lated in the inst() function.
-// GlobalClass's ctor and dtor have
-// been made protected so that cli-
-// ents cannot create more inst's
-// or destroy the Singleton inst.
+// New design.  "globalObj" is now a private static data member of its own class.  Global access is provided by the public static member
+// function inst().  And the lazy initialization code is encapsulated in the inst() function.
+// GlobalClass's ctor and dtor have been made protected so that clients cannot create more inst's or destroy the Singleton inst.
 
-#include <iostream>         
- using namespace std;
+#include "CommonInclude.h"
  
 class GlobalClass {
 public:
@@ -32,9 +23,7 @@ private:
    static GlobalClass* globalObj_;
 };
 
-// Allocating and initializing
-// GlobalClass's static data member
-// (the ptr, not a GlobalClass inst)
+// Allocating and initializing GlobalClass's static data member (the ptr, not a GlobalClass inst)
 GlobalClass*
    GlobalClass::globalObj_ = 0;
 
@@ -56,11 +45,13 @@ void bar( void )
 
 int main_singleton_2( void )
 {
+   cout<<">>>>>>>> main_singleton_2 <<<<<<<<"<<endl;  
    cout << "main: globalObj is " <<
       GlobalClass::inst()->getValue()
       << endl;
    foo();
    bar();
+   return 0;
 }
 // main: globalObj is 0
 // foo: globalObj is 1

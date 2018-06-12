@@ -1,4 +1,4 @@
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 // Purpose.  Abstract Factory design pattern demo.
 // 
 // Discussion.  "Think of constructors as factories that churn out objects".

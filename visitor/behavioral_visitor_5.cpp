@@ -7,9 +7,7 @@
 // 3. Create a "visitor" derived class for each "operation" to do on "elements"
 // 4. Client creates "visitor" objects and passes each to accept() calls
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include "CommonInclude.h"
 
 // 1. Add an accept(Visitor) method to the "element" hierarchy
 class Element { public:
@@ -61,7 +59,9 @@ class DownVisitor : public Visitor {
       cout << "do Down on " + e->theOther() << '\n'; }
 };
 
-int main_visitor_5( void ) {
+int main_visitor_5( void ) 
+{
+   cout<<">>>>>>>> main_visitor_5 <<<<<<<<"<<endl; 
    Element* list[] = { new This(), new That(), new TheOther() };
    UpVisitor    up;             // 4. Client creates
    DownVisitor  down;           //    "visitor" objects

@@ -11,9 +11,7 @@
 // dynamic_cast() to figure this out.  In those cases where dynamic_cast()
 // is too expensive, I will use a Visitor." [Robert Martin]
 
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "CommonInclude.h"
 
 class Visitor { public:
    virtual void visit( class Primitive*, class Component* ) = 0;
@@ -52,7 +50,9 @@ class AddVisitor : public Visitor { public:
    /*virtual*/ void visit( Composite* node, Component* c ) { node->add( c ); }
 };
 
-int main_visitor_6( void ) {
+int main_visitor_6( void ) 
+{
+   cout<<">>>>>>>> main_visitor_6 <<<<<<<<"<<endl; 
    Component*  nodes[3];
    // The type of Composite* is "lost" when the object is assigned to a
    // Component*

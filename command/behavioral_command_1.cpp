@@ -5,7 +5,7 @@
 // On the right,TheBoss is only coupled to the abstract class Command.  
 // Lots of possible derived classes could be substituted: IOUs that call payUp() on Deadbeats, Checks that call cash() on Banks, Stocks that call redeem() on Companies.  
 // Each "command" is a "token" that gets transfered from one holder to another, until someone chooses to "execute" it.         
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 class Deadbeat 
 { 

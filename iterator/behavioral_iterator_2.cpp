@@ -6,7 +6,7 @@
 // too much typing.  This design uses nothing but "intuitive" operators.
 // Notice also that no createIterator() was specified.  The user creates these
 // iterators as local variables, and no clean-up is necessary.
-#include "CommonHeader.h"    
+#include "CommonInclude.h"    
 class Stack1 {
    int items[10];
    int sp;

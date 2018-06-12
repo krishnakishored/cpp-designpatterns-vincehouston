@@ -13,9 +13,7 @@
 // If new State classes are added, then every Cmd class must be changed, and
 // Visitor is NOT the right approach to take.
 
-#include <iostream>        
-using std::cout;
-using std::endl;
+#include "CommonInclude.h"
            
 int  current = 0;                       
 enum CmdTyp { OnT, OffT };              
@@ -52,12 +50,14 @@ class Two : public State { public:
    }                                    
 };                                      
 State* states[] = { new One, new Two }; 
-int main_visitor_3( void )                       
-{                                       
+int main_visitor_3( void )  
+{                         
+   cout<<">>>>>>>> main_visitor_3 <<<<<<<<"<<endl;               
    Cmd* c[] = { new Off,                
         new On, new Off, new Off, 0 };  
    for (int i=0; c[i]; i++)             
       states[current]->process( c[i] ); 
+  return 0;
 }                                       
 // ERROR                                
 // One,On => Two                        

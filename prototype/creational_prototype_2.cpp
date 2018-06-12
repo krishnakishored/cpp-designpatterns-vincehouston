@@ -1,9 +1,11 @@
-#include <iostream>
-using namespace std;
+#include "CommonInclude.h"
 
-class Stooge { public:
+class Stooge 
+{ 
+public:
    virtual Stooge* clone() = 0;
    virtual void slapStick() = 0;
+   virtual ~Stooge(){}
 };
 class Factory {
 public:
@@ -11,20 +13,26 @@ public:
 private:
    static Stooge* prototypes_[4];
 };
+
 int main_prototype_2( void )
 {
+   cout<<">>>>>>>> main_prototype_2 <<<<<<<<"<<endl;   
    Stooge*  roles[10];
    int      in, j, i = 0;
    cout << "L(1) M(2) C(3) Go(0): ";
    cin >> in;
-   while (in) {
+   while (in) 
+   {
       roles[i++] = Factory::create(in);
       cout << "L(1) M(2) C(3) Go(0): ";
-      cin >> in; }
+      cin >> in; 
+   }
    for (j=0; j < i; j++)
       roles[j]->slapStick();
    for (j=0; j < i; j++)
       delete roles[j];
+ 
+ return 0;
 }
 class Larry : public Stooge { public:
    Stooge* clone() { return new Larry; }

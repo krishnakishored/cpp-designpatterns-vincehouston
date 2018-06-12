@@ -1,12 +1,5 @@
 // Purpose.  Direct coupling, lots of start-up and shut-down overhead
-
-#include <iostream>
-#include <string>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
+#include "CommonInclude.h" 
 
 class Image1 {
    int        id;
@@ -18,7 +11,9 @@ public:
 };
 int Image1::next = 1;
 
-int main_proxy_1( void ) {
+int main_proxy_1A( void ) 
+{
+      cout<<">>>>>>>> main_proxy_1A <<<<<<<<"<<endl;   
    Image1 images[5];
    int   i;
 
@@ -87,7 +82,9 @@ public:
 
 int Image::next = 1;
 
-int main_proxy_2( void ) {
+int main_proxy_1B( void ) 
+{
+   cout<<">>>>>>>> main_proxy_1B <<<<<<<<"<<endl;   
    Image images[5];
    int   i;
 

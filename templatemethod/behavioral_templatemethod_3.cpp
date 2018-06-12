@@ -1,6 +1,6 @@
 
 // Purpose.  No reuse
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 class One {
    void a() { cout << "a  "; }
    void b() { cout << "b  "; }

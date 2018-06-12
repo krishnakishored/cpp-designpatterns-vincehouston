@@ -1,21 +1,10 @@
  // Purpose.  Singleton destroyer        
  //
- // Discussion.  Vlissides describes     
- // that Singletons can be cleaned-up    
- // by "wrapping" the ptr in a stack-    
- // based static member of another       
- // class whose sole responsibility is   
- // to have its destructor delete the    
- // Singleton's ptr.  The Singleton      
- // destroyer is automatically cre-      
- // ated before main() is run, and       
- // initially contains a null ptr.       
- // The first time the inst() method
- // is called, the destroyer is          
- // meaningfully initialized.            
-                                         
- #include <iostream>         
- using namespace std;                  
+ // Discussion.  Vlissides describes that Singletons can be cleaned-up by "wrapping" the ptr in a stack based static member of another       
+ // class whose sole responsibility is to have its destructor delete the Singleton's ptr.  The Singleton destroyer is automatically created before main() is run, and       
+ // initially contains a null ptr. The first time the inst() method is called, the destroyer is meaningfully initialized.            
+
+#include "CommonInclude.h"               
                                          
  class GlobalClass {                     
  public:                                 
@@ -50,16 +39,18 @@
  }                                       
  void bar( void ) {                      
     GlobalClass::inst()->setValue( 2 );  
-    cout << "bar: globalObj is " <<      
-       GlobalClass::inst()->getValue()   
-       << endl;                          
+    cout << "bar: globalObj is " << GlobalClass::inst()->getValue() << endl;                          
  }                                       
- int main_singleton_3( void ) {                     
+
+int main_singleton_3( void ) 
+{
+    cout<<">>>>>>>> main_singleton_3 <<<<<<<<"<<endl;                       
     cout << "main: globalObj is " <<     
        GlobalClass::inst()->getValue()   
        << endl;                          
     foo();                               
     bar();
+    return 0;
  }                                       
                                          
  // main: globalObj is 0                 

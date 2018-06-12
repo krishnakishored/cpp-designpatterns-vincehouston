@@ -5,7 +5,7 @@
 // An "adapter" class is defined that publicly inherits the interface of the abstract class, and privately inherits the implementation of the legacy component.  
 // This adapter class "maps" or "impedance matches" the new interface to the old implementation.
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 #include <time.h>
 
 typedef int Coordinate;

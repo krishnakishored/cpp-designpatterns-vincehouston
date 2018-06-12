@@ -7,7 +7,7 @@
 // bit of coupling goes away.  The "factory method" (aka "virtual constructor") can be defined in the  
 // Stooge base class, or, in a separate "factory" class.  Note that main() is no longer dependent on Stooge derived classes.           
                                         
-#include "CommonHeader.h"                  
+#include "CommonInclude.h"                  
                                         
 class Stooge { public:                  
    virtual void slapStick() = 0;        

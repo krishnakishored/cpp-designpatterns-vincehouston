@@ -8,7 +8,7 @@
 // In this example, the "X" state is considered shareable (within each row anyways), and the "Y" state has been externalized 
 // (it is supplied by the client when report() is called).                             
                                         
-#include "CommonHeader.h"               
+#include "CommonInclude.h"               
   
 // Purpose.  Flyweight design pattern demo.
 // 

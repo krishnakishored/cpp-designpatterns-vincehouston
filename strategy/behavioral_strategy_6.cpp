@@ -9,7 +9,7 @@
 // unknown implementation, and the end-user of Stat can affect
 // the choice of implementation.
 
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 
 class SortImpl {
 public:

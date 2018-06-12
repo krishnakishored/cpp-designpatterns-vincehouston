@@ -1,7 +1,6 @@
                                         
- #include <iostream>         
- using namespace std;  
- 
+ #include "CommonInclude.h"
+
 class GlobalClass;
 class SingDest {
 public:
@@ -50,13 +49,16 @@ void bar( void ) {
       GlobalClass::inst()->getValue()
       << endl;
 }
-int main_singleton_4( void ) {
+int main_singleton_4( void ) 
+{
+   cout<<">>>>>>>> main_singleton_4 <<<<<<<<"<<endl;  
    cout << "main: globalObj is " <<
       GlobalClass::inst()->getValue()
       << endl;
    foo();
    bar();
    cout << "main: end" << endl;
+   return 0;
 }
 // main: globalObj is :ctor: 0
 // foo: globalObj is 1

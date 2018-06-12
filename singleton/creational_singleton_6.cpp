@@ -1,20 +1,13 @@
 
                                         
- #include <iostream>         
- using namespace std;  
+ #include "CommonInclude.h"
+ #include <stdlib.h>      
+ 
 
-// New design.  "globalObj" is now a
-// static variable in the inst() ac-
-// cessor method.  The single inst-
-// ance is enforced by declaring the
-// ctor non-public.  [The dtor must
-// be public because of the static
-// variable instance.]  Global
-// access is provided by the static
-// inst() method.  The object is al-
-// located on first demand by C++,
-// and it is de-allocated automati-
-// cally by C++.
+// New design.  "globalObj" is now a static variable in the inst() accessor method.  
+// The single instance is enforced by declaring the ctor non-public.  [The dtor must be public because of the static
+// variable instance.]  Global access is provided by the static inst() method. 
+//  The object is allocated on first demand by C++, and it is de-allocated automatically by C++.
 
 
 
@@ -53,14 +46,16 @@ void bar( void )
       << endl;
 }
 
-int main_singleton_6( void )
+int main_singleton_6A( void )
 {
+      cout<<">>>>>>>> main_singleton_6A <<<<<<<<"<<endl;
    cout << "main: globalObj is " <<
       GlobalClass::inst().getValue()
       << endl;
    foo();
    bar();
    cout << "main: end" << endl;
+   return 0;
 }
 
 // main: globalObj is :ctor: 0
@@ -79,13 +74,7 @@ int main_singleton_6( void )
 // 4. Define all constructors to be protected or private
 // 5. Clients may only use the accessor function to manipulate the Singleton
 // 6. Inheritance can be supported, but static functions may not be overridden.
-//    The base class must be declared a friend of the derived class (in order
-//    to access the protected constructor).
-
-#include <iostream>
-#include <string>
-#include <stdlib.h>
-using namespace std;
+//    The base class must be declared a friend of the derived class (in order to access the protected constructor).
 
 class Number {
 public:
@@ -93,6 +82,7 @@ public:
    static  void setType( string t ) { type = t;  delete inst;  inst = 0;}
    virtual void setValue( int in )  { value = in; }
    virtual int  getValue()          { return value; }
+   virtual ~Number(){}
 protected:
    int value;
    Number() { cout << ":ctor: "; }  // 4. Define all ctors to be protected
@@ -118,13 +108,24 @@ protected:
 
 Number* Number::instance() {
    if ( ! inst)
-      // 3. Do "lazy initialization" in the accessor function
-      if (type == "octal") inst = new Octal();
-      else                 inst = new Number();
+   {
+         // 3. Do "lazy initialization" in the accessor function
+      if (type == "octal") 
+      {
+            inst = new Octal();
+      }
+      else 
+      {
+            inst = new Number();
+      }          
+   }
    return inst;
 }
 
-int main_singleton_6B( void ) {
+int main_singleton_6B( void ) 
+{
+      main_singleton_6A();
+    cout<<">>>>>>>> main_singleton_6B <<<<<<<<"<<endl;  
    // Number  myInstance; --- error: cannot access protected constructor
    // 5. Clients may only use the accessor function to manipulate the Singleton
    Number::instance()->setValue( 42 );
@@ -132,6 +133,7 @@ int main_singleton_6B( void ) {
    Number::setType( "octal" );
    Number::instance()->setValue( 64 );
    cout << "value is " << Number::instance()->getValue() << endl;
+   return 0;
 }
 
 // :ctor: value is 42

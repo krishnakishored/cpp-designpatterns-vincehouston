@@ -1,4 +1,4 @@
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 // Purpose.  Observer and Mediator demo
 // 

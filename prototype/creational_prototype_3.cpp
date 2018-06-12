@@ -1,32 +1,11 @@
-//////////////////// Same example, single column \\\\\\\\\\\\\\\\\\\\
+//  Same example, single column 
 
-
-// Purpose.  Prototype
-//           creation via delegation
-// Discussion.  The architect has done
-// an admirable job of decoupling the
-// client from Stooge concrete derived
-// classes and exercising polymor-
-// phism.  But there remains coup-
-// ling where instances are actually
-// created.  If we design an "extra
-// level of indirection" (a "factory")
-// and have clients use it (instead of
-// "new"), then the last bit of coup-
-// ling goes away.  The Prototype
-// pattern suggests delegating the
-// creation service to contained ob-
-// jects that know how to "clone"
-// themselves.  This strategy also
-// allows us to retire the "case"
-// statement in main().
-
-#include <iostream>
-using namespace std;
+#include "CommonInclude.h"
 
 class Stooge {
 public:
    virtual void slapStick() = 0;
+   virtual ~Stooge(){}
 };
 
 class Larry : public Stooge {
@@ -45,13 +24,16 @@ public:
       cout << "Curly: suffer abuse" << endl; }
 };
 
-int main_prototype_3( void ) {
+int main_prototype_3( void ) 
+{
+   cout<<">>>>>>>> main_prototype_3 <<<<<<<<"<<endl;   
    Stooge*  roles[10];
    int      in, j, i = 0;
 
    cout << "L(1) M(2) C(3) Go(0): ";
    cin >> in;
-   while (in) {
+   while (in) 
+   {
       if (in == 1)
          roles[i++] = new Larry;
       else if (in == 2)
@@ -69,6 +51,7 @@ int main_prototype_3( void ) {
       delete roles[j];
       
    system( "pause" );
+   return 0;
 }
 
 // L(1) M(2) C(3) Go(0): 1

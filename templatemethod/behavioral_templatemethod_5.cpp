@@ -8,7 +8,7 @@
 // 2. Steps requiring peculiar implementations are "placeholders" in base class
 // 3. Derived classes implement placeholder methods
 
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 
 class StandardAlgorithm {
    // 3. Steps requiring peculiar implementations are "placeholders" in base class
@@ -27,15 +27,23 @@ class Alphabetic : public StandardAlgorithm {
    /*virtual*/ string preprocess( char* in ) {
       string s( in );
       for (int i=0; i < s.size(); i++)
-         if (s[i] >= 'A' && s[i] <= 'Z' || s[i] == ' ') /* empty */ ;
-         else if (s[i] >= 'a' && s[i] <= 'z')           s[i] = s[i] - 32;
-         else                                           s[i] = '_';
+      //    if ((s[i] >= 'A') && (s[i] <= 'Z') || (s[i] == ' ')) ;
+         if (((s[i] >= 'A') && (s[i] <= 'Z')) || (s[i] == ' ')) ;
+                  /* empty */  //place parentheses around the '&&' expression to silence this warning
+         else if ((s[i] >= 'a') && (s[i] <= 'z'))    //'&&' within '||' [-Wlogical-op-parentheses]       
+            s[i] = s[i] - 32; 
+         else  
+            s[i] = '_';
       return s;
    }
-   /*virtual*/ bool validate( char ch ) {
-      if (ch >= 'A' && ch <= 'Z' || ch == ' ') return true;
-      else return false;
-}  };
+   /*virtual*/ bool validate( char ch ) 
+   {
+      if (((ch >= 'A') && (ch <= 'Z')) || (ch == ' ')) 
+        return true;
+      else 
+        return false;
+   }  
+};
 
 class Numeric : public StandardAlgorithm {
    /*virtual*/ string preprocess( char* in ) { return in; }
@@ -44,10 +52,14 @@ class Numeric : public StandardAlgorithm {
       else return false;
 }  };
 
+
 int main_templatemethod_5( void ) 
 {
-   cout<<">>>>>>>> main_templatemethod_5 <<<<<<<<"<<endl;  
-   StandardAlgorithm* types[] = { &Alphabetic(), &Numeric() }; //message: taking the address of a temporary object of type 'Alphabetic' [-Waddress-of-temporary]
+   cout<<">>>>>>>> main_templatemethod_5 <<<<<<<<"<<endl; 
+   Alphabetic myAlphabetic; 
+   Numeric myNumeric; 
+   StandardAlgorithm* types[] = { &myAlphabetic, &myNumeric }; 
+//    StandardAlgorithm* types[] = { &Alphabetic(), &Numeric() }; //TODO: taking the address of a temporary object of type 'Alphabetic' [-Waddress-of-temporary]
    char buf[20];
    while (true) {
       cout << "Input: ";

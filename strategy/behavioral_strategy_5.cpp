@@ -14,7 +14,7 @@
 // encapsulate the hierarchy, and make them interchangeable" via
 // an abstract base class.
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 class Stat {
 public:

@@ -4,7 +4,7 @@
 // Instead, create a wrapper (or interface) class that contains and delegates to a body (or implementation) class. 
 // Client can now specify at run-time exactly what s/he wants.    
                                         
-#include "CommonHeader.h"              
+#include "CommonInclude.h"              
 #include <iomanip>
 
 

@@ -2,7 +2,7 @@
 // Purpose.  Composite and Prototype - lightweight persistence
 
 // #pragma warning( disable : 4786 )
-#include"CommonHeader.h"     
+#include"CommonInclude.h"     
 
 
 

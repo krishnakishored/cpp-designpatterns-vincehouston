@@ -6,14 +6,9 @@
 // is saved in the static command history list.  Undo() simply "pops" the memento history list and reinstates Number's state from the memento.
 // Redo() "pops" the command history list.  Note that Number's encapsulation is preserved, and Memento is wide open to Number.
 
-#include <iostream>
-using std::cout;
-using std::cin;
-using std::endl;         
-
+#include "CommonInclude.h"         
 
 // class Number;
-
 class Memento {
 public:
    Memento( int val ) { _state = val; }
@@ -82,7 +77,9 @@ Memento* Command::_mementoList[];
 int      Command::_numCommands = 0;
 int      Command::_highWater   = 0;
 
-int main_memento_2() {
+int main_memento_2() 
+{
+  cout<<">>>>>>>> main_memento_2 <<<<<<<<"<<endl;   
    int i;
    cout << "Integer: ";
    cin >> i;

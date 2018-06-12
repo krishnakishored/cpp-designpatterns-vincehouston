@@ -2,12 +2,12 @@
 // single sort implementation, we could enjoy reuse.  "Template Method defines an algorithm in terms of abstract operations that subclasses
 // override to provide concrete behavior."  Here, doIt() is the algorithm, and needSwap() is the abstract operation.
 
-#include"CommonHeader.h"          
+#include"CommonInclude.h"          
                      
 #include <time.h>     
 
 
-class Sort {  ////// Shell sort //////
+class Sort {  // Shell sort
 public:
    void doIt( int v[], int n ) {
       for (int g = n/2; g > 0; g /= 2)

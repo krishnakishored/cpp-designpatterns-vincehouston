@@ -1,36 +1,17 @@
 // Purpose.  Visitor (adding ops)       
 //                                      
-// Discussion.  On the left, adding
-// new operations requires modifying    
-// all the current Color classes.  If   
-// we introduce an extra level of in-   
-// direction (a Visitor hierarchy),
-// then operations capable of opera-    
-// ting on Color classes can be added   
-// without modifying any existing       
-// code.  On the right, an entry point  
-// for all future operations has been   
-// added in the form of the accept()    
-// method.  Each of the previous op-    
-// erations has been encapsulated in    
-// its own derived Visitor class.  Any
-// new operations simply require the    
-// addition of a new Visitor class.     
-//                                      
-// When we call accept() on a Color     
-// object, dynamic binding gets us to
-// the correct derived class of Color.  
-// Then when we call visit() on the     
-// Visitor object, dynamic binding      
-// gets us to the correct derived       
-// class of Visitor.  [Visitors and     
-// Colors can be passed by address or   
-// passed by reference.]                
-                                        
-#include <iostream>                   
+// Discussion.  On the left, adding new operations requires modifying all the current Color classes.   
+// If we introduce an extra level of indirection (a Visitor hierarchy), then operations capable of operating on Color classes can be added   
+// without modifying any existing code. 
 
-using std::cout;
-using std::endl;
+// On the right, an entry point  for all future operations has been added in the form of the accept() method.  Each of the previous operations has been encapsulated in    
+// its own derived Visitor class.  Any new operations simply require the addition of a new Visitor class.     
+//                                      
+// When we call accept() on a Color object, dynamic binding gets us to the correct derived class of Color.  
+// Then when we call visit() on the Visitor object, dynamic binding gets us to the correct derived class of Visitor. 
+// [Visitors and Colors can be passed by address or passed by reference.]                
+                                        
+#include "CommonInclude.h"
 
 class Color {                           
 public:                                 
@@ -57,8 +38,9 @@ class Blu : public Color { public:
    void sky() { cout << "Blu::sky\n";}  
 };                                      
                                         
-int main_visitor_1( void )                       
-{                                       
+int main_visitor_1( void )                     
+{
+  cout<<">>>>>>>> main_visitor_1 <<<<<<<<"<<endl;                                        
    Color* set[] = { new Red, new Blu,
       new Blu, new Red, new Red, 0 };   
    for (int i=0; set[i]; i++) {         

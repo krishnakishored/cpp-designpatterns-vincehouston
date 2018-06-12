@@ -8,7 +8,7 @@
 // 7. Decorator derived classes delegate to base class AND add extra stuf
 // 8. Client has the responsibility to compose desired configurations
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 
 // 1. "lowest common denominator"

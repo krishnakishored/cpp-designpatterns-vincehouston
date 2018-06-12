@@ -5,7 +5,7 @@
 // The replicated data are not Node objects, they are lightweight pointers.  
 // The array is initialized using a recursive method similar to traverse(Node*).
 
-#include "CommonHeader.h"    
+#include "CommonInclude.h"    
 
 class Iterator1;
 

@@ -9,12 +9,7 @@
 // box [_mediator->widgetChanged( this )]. FileSelectionDialog::widgetChanged() encapsulates all collective behavior for the dialog box (it serves as the hub of communication).
 // The user may choose to "interact" with a simulated: filter edit field, directories list, files list, or selection edit field.
 
-#include <iostream>
-using std::cout;
-using std::endl;    
-using std::cin;
-
-
+#include "CommonInclude.h"     
 class FileSelectionDialog;
 
 class Widget {
@@ -25,7 +20,7 @@ public:
 	virtual void changed();
 	virtual void updateWidget() = 0;
 	virtual void queryWidget() = 0;
-	virtual ~Widget();// message: delete called on 'Widget' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+	virtual ~Widget(){}// TODO: delete called on 'Widget' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
 protected:
 	char                 _name[20];
 private:
@@ -88,7 +83,8 @@ void Widget::changed() {
 	_mediator->widgetChanged( this ); }
 
 
-int main_mediator_2() {
+int main_mediator_2() 
+{
 	cout<<">>>>>>>> main_mediator_2 <<<<<<<<"<<endl;    
 	FileSelectionDialog fileDialog;
 	int                 i;

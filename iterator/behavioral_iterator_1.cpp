@@ -21,7 +21,7 @@
 // 3. Clients ask the container object to create an iterator object
 // 4. Clients use the first(), isDone(), next(), and currentItem() protocol
 
-#include "CommonHeader.h"    
+#include "CommonInclude.h"    
 
 class StackIter;
 

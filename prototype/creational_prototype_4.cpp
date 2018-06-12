@@ -1,11 +1,11 @@
 
-#include <iostream>
-using namespace std;
+#include "CommonInclude.h"
 
 class Stooge {
 public:
    virtual Stooge* clone() = 0;
    virtual void slapStick() = 0;
+   virtual ~Stooge(){} //delete called on 'Stooge' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
 };
 
 class Factory {
@@ -15,7 +15,9 @@ private:
    static Stooge* prototypes_[4];
 };
 
-int main_prototype_3( void ) {
+int main_prototype_4A( void ) 
+{
+  cout<<">>>>>>>> main_prototype_4A <<<<<<<<"<<endl;   
    Stooge*  roles[10];
    int      in, j, i = 0;
 
@@ -34,6 +36,7 @@ int main_prototype_3( void ) {
       delete roles[j];
       
    system( "pause" );
+   return 0;
 }
 
 class Larry : public Stooge {
@@ -63,15 +66,11 @@ Stooge* Factory::create( int i ) { return prototypes_[i]->clone(); }
 
 // Purpose.  Prototype design pattern demo
 //
-// Discussion.  Image base class provides the mechanism for storing,
-// finding, and cloning the prototype for all derived classes.  Each
-// derived class specifies a private static data member whose
-// initialization "registers" a prototype of itself with the base class.
-// When the client asks for a "clone" of a certain type, the base class
-// finds the prototype and calls clone() on the correct derived class.
+// Discussion.  Image base class provides the mechanism for storing, finding, and cloning the prototype for all derived classes. 
+// Each derived class specifies a private static data member whose initialization "registers" a prototype of itself with the base class.
+// When the client asks for a "clone" of a certain type, the base class finds the prototype and calls clone() on the correct derived class.
 
-#include <iostream>
-using namespace std;
+
 
 enum imageType { LSAT, SPOT };
 
@@ -80,6 +79,7 @@ class Image {
 public:
   virtual void      draw()       = 0;
   static  Image*    findAndClone( imageType );
+  virtual ~Image(){}
 protected:
   virtual imageType returnType() = 0;
   virtual Image*    clone()      = 0;
@@ -100,7 +100,7 @@ int    Image::_nextSlot;
 Image* Image::findAndClone( imageType type )
 {
   for (int i=0; i < _nextSlot; i++)
-    if (_prototypes[i]->returnType() == type)
+    if (_prototypes[i]->returnType() == type) //TODO: control may reach end of non-void function [-Wreturn-type]
       return _prototypes[i]->clone();
 }
 
@@ -154,7 +154,10 @@ const int  NUM_IMAGES = 8;
 imageType  input[NUM_IMAGES] =
   { LSAT, LSAT, LSAT, SPOT, LSAT, SPOT, SPOT, LSAT };
 
-int main_prototype_4() {
+int main_prototype_4B() 
+{
+  // main_prototype_4A();
+  cout<<">>>>>>>> main_prototype_4B <<<<<<<<"<<endl;   
   Image*  images[NUM_IMAGES];
 
   // Given an image type, find the right prototype, and return a clone

@@ -48,14 +48,16 @@
        globalObj->getValue() << endl;    
  }                                       
                                          
- int main_singleton_5( void )
- {                                       
+int main_singleton_5( void )
+ {
+       cout<<">>>>>>>> main_singleton_5 <<<<<<<<"<<endl;                                       
     if ( ! globalObj )                   
        globalObj = new GlobalClass;      
     cout << "main: globalObj is " <<     
        globalObj->getValue() << endl;    
     foo();                               
-    bar();                               
+    bar(); 
+    return 0;                              
  }                                       
                                          
  // main: globalObj is 0

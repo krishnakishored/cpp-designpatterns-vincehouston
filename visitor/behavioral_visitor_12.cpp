@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 // Purpose.  Triple dispatch (within a single hierarchy)
 // 
 // Discussion.  It would be nice if C++ supported creating a function like:
@@ -20,8 +10,7 @@
 // juggling the three objects through 2 increasingly type-specific parameter
 // slots.
 
-#include <iostream>
-using namespace std;
+#include "CommonInclude.h"
 
 class Zero;
 class One;
@@ -100,14 +89,19 @@ void processCombine( Binary& first, Binary& second, Binary& third ) {
    first.combine( second, third );
 }
 
-int main_visitor_12( void ) {
-   Binary*  list[2] = { &Zero(), &One() }; // message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
+int main_visitor_12( void ) 
+{
+    cout<<">>>>>>>> main_visitor_12 <<<<<<<<"<<endl; 
+   Zero myZero;
+   One myOne; 
+   Binary*  list[2] = { &myZero, &myOne }; // message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
 
    // Run through permutations
    for (int i=0; i < 2; i++)
       for (int j=0; j < 2; j++)
          for (int k=0; k < 2; k++)
             processCombine( *list[i], *list[j], *list[k] );
+ return 0;
 }
 
 // 0  0  0  

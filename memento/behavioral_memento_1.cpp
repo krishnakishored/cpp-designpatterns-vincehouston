@@ -8,12 +8,8 @@
 // 6. Caretaker knows when to "roll back" the originator
 // 7. Originator reinstates itself using the saved state in the memento
 
-#include <iostream>   
-#include <string>   
-using std::cout;
-using std::cin;
-using std::endl; 
-using std::string; 
+#include "CommonInclude.h"
+
 using std::ostream; 
 
 class Memento {                   // 2. Create a "memento" class and
@@ -46,13 +42,16 @@ public:
       string buf( "[ " );
       for (int i=0; i < s.sp+1; i++) { buf += s.items[i]+48;  buf += ' '; }
       buf += ']';
-      return os << buf;                   // stack is [ 0 1 2 3 4 ]
-}  };                                     // stack is [ 0 1 2 3 4 5 6 7 8 9 ]
-                                          // popping stack: 9 8 7 6 5 4 3 2 1 0
-// 1. main() is the "caretaker"           // stack is [ ]
-int main_memento_1( void ) {                       // second is [ 0 1 2 3 4 5 6 7 8 9 ]    
-   Stack s;                               // first is [ 0 1 2 3 4 ]
-   for (int i=0; i < 5; i++) s.push( i ); // popping stack: 4 3 2 1 0
+      return os << buf;                   
+}  };                                     
+                                    
+// 1. main() is the "caretaker"     
+
+int main_memento_1( void ) 
+{                       
+   cout<<">>>>>>>> main_memento_1 <<<<<<<<"<<endl;   
+   Stack s;                               
+   for (int i=0; i < 5; i++) s.push( i ); 
    cout << "stack is " << s << endl;      
    Memento* first = s.checkPoint();       // 3. Caretaker knows when to save
    for (int i=5; i < 10; i++) s.push( i );    // 5. Caretaker holds on to memento
@@ -70,4 +69,12 @@ int main_memento_1( void ) {                       // second is [ 0 1 2 3 4 5 6 
    delete first;  delete second;
    return 0;
 }
+
+// stack is [ 0 1 2 3 4 ]
+// stack is [ 0 1 2 3 4 5 6 7 8 9 ]
+// popping stack: 9 8 7 6 5 4 3 2 1 0
+// stack is [ ]
+// second is [ 0 1 2 3 4 5 6 7 8 9 ]
+// first is [ 0 1 2 3 4 ]
+// popping stack: 4 3 2 1 0
 

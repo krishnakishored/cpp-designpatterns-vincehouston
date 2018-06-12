@@ -2,7 +2,7 @@
 //                                      
 // Discussion.  The class Stat has a Bubble sort algorithm hard-wired in it.  It would be nice if the choice of algorithm were configurable.
 // The Strategy pattern suggests "define a family of algo's, encapsulate each one, and make them interchangeable" via an abstract base class.  
-#include"CommonHeader.h"
+#include"CommonInclude.h"
        
                                         
 class Stat {     /* Bubble sort */      

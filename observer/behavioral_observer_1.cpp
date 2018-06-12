@@ -3,7 +3,7 @@
 // Discussion.  On the left: Subject has hard-wired the number and type of "dependent" objects, the compiler must have the declaration of the  
 // concrete Obs classes to compile Subject's decl, the Obs classes exercise no reuse of i/f or impl, and Subject "pushes" updates to the Obs objects.  
       
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 class DivObs1 { 
 public:                  

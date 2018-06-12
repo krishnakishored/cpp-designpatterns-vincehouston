@@ -5,9 +5,7 @@
 
 // Purpose.  Combining Visitor with Composite's recursive traversal
 
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "CommonInclude.h"
 
 class Visitor { public:
    virtual void visit( class Leaf* e )      = 0;
@@ -55,7 +53,9 @@ class TransformVisitor : public Visitor { public:
    /*virtual*/ void visit( Composite* e ) { cout << (char)(e->getValue()-32) <<' ';}
 };
 
-int main_visitor_7( void ) {
+int main_visitor_7( void ) 
+{ 
+   cout<<">>>>>>>> main_visitor_7 <<<<<<<<"<<endl; 
    Composite containers[4];
    for (int i=0; i < 4; i++)
       for (int j=0; j < 3; j++)

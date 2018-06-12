@@ -6,7 +6,7 @@
 // 4. All "container" classes couple themselves to the interface (recursive composition, Composite "has a" set of children up the "is a" hierarchy)
 // 5. "Container" classes use polymorphism as they delegate to their children
 
-#include"CommonHeader.h"     
+#include"CommonInclude.h"     
 
 // 2. Create an "interface" (lowest common denominator)
 class Component { public: virtual void traverse() = 0; };

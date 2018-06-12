@@ -5,9 +5,7 @@
 // Purpose.  Visitor - double dispatch - doing the right thing based on the
 // type of two objects
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include "CommonInclude.h"
 
 class Request { public:
    // second dispatch - the "visit()" method
@@ -41,7 +39,9 @@ class P2 : public Processor { public:
 /*virtual*/ void R2::execute( P1* p ) { p->procOneMethod(); cout << "request two\n"; }
 /*virtual*/ void R2::execute( P2* p ) { p->procTwoMethod(); cout << "request two\n"; }
 
-int main_visitor_9( void ) {
+int main_visitor_9( void ) 
+{
+   cout<<">>>>>>>> main_visitor_9 <<<<<<<<"<<endl; 
    Processor* handlers[] = { new P1(), new P2() };
    Request*   commands[] = { new R1(), new R2() };
    for (int i=0; i < 2; i++)

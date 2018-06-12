@@ -1,28 +1,17 @@
-// Purpose.  Prototype                  
-//           creation via delegation
-// Discussion.  The architect has done  
-// an admirable job of decoupling the   
-// client from Stooge concrete derived  
-// classes and exercising polymor-      
-// phism.  But there remains coup-
-// ling where instances are actually    
-// created.  If we design an "extra     
-// level of indirection" (a "factory")  
-// and have clients use it (instead of  
-// "new"), then the last bit of coup-   
-// ling goes away.  The Prototype       
-// pattern suggests delegating the
-// creation service to contained ob-    
-// jects that know how to "clone"       
-// themselves.  This strategy also      
-// allows us to retire the "case"       
-// statement in main().
-                                        
-#include <iostream>                   
-using namespace std;    
+// Purpose.  Prototype  - creation via delegation              
+// 
+// Discussion.  The architect has done an admirable job of decoupling the client from Stooge concrete derived  
+// classes and exercising polymorphism.  But there remains coupling where instances are actually created.  If we design an "extra     
+// level of indirection" (a "factory") and have clients use it (instead of "new"), then the last bit of coupling goes away   
+// The Prototype pattern suggests delegating the creation service to contained objects that know how to "clone" themselves.      
+// This strategy also allows us to retire the "case" statement in main().       
+
+#include "CommonInclude.h" 
             
-class Stooge { public:                  
-   virtual void slapStick() = 0;        
+class Stooge { 
+ public:                  
+   virtual void slapStick() = 0; 
+   virtual ~Stooge(){}       
 };                                      
 class Larry : public Stooge { public:   
    void slapStick() {                   
@@ -41,7 +30,8 @@ class Curly : public Stooge { public:
 };                                      
                                         
 int main_prototype_1( void )                       
-{                                       
+{                            
+   cout<<">>>>>>>> main_prototype_1 <<<<<<<<"<<endl;           
    Stooge*  roles[10];                  
    int      in, j, i = 0;               
                                         
@@ -61,6 +51,8 @@ int main_prototype_1( void )
       roles[j]->slapStick();            
                                         
    for (j=0; j < i; j++)                
-      delete roles[j];                  
+      delete roles[j];
+
+  return 0;                  
 }                                       
                                         

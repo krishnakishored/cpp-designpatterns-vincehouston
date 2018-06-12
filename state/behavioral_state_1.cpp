@@ -5,7 +5,7 @@
 // very difficult.  The State pattern models individual states with derived classes of an inheritance hierarchy, and front-ends this       
 // hierarchy with an "interface" object that knows its "current" state.  This partitions and localizes all state-specific responsibilities; allowing for a cleaner     
 // implementation of dynamic behavior that must change as internal state changes.
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 #include <ctime>
 

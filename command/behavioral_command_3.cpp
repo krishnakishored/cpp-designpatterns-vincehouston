@@ -1,5 +1,5 @@
 ﻿                                    
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 // Purpose.  Simple and "macro" commands
 // 
 // Discussion.  Encapsulate a request as an object.  

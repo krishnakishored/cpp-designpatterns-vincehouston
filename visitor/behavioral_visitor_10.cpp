@@ -15,9 +15,7 @@
 // they choose to be coupled to.  If a new Element derived class is added,
 // Visitor derived classes can update themselves if, and when, they choose.
 
-#include <iostream>
-#include <string>
-using namespace std;
+#include "CommonInclude.h"
 
 class Element { public:
    virtual void accept( class Visitor& v ) = 0;
@@ -87,7 +85,9 @@ class DownVisitor : public Visitor, public ThisVisitor, public ThatVisitor,
       cout << "do Down on " + e->theOther() << '\n'; }
 };
 
-int main_visitor_11( void ) {
+int main_visitor_10( void )
+ { 
+   cout<<">>>>>>>> main_visitor_10 <<<<<<<<"<<endl; 
    Element* list[] = { new This(), new That(), new TheOther() };
    UpVisitor    up;             // 4. Client creates
    DownVisitor  down;           //    "visitor" objects
@@ -95,6 +95,7 @@ int main_visitor_11( void ) {
       list[i]->accept( up );    //    to accept() calls
    for (int i=0; i < 3; i++)
       list[i]->accept( down );
+  return 0;
 }
 
 // do Up on This                // do Down on This

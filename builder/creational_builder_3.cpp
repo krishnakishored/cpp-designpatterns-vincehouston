@@ -15,7 +15,7 @@
 // registered by the client.  Upon completion, the client retrieves the
 // end result from the builder.
 
-#include"CommonHeader.h"     
+#include"CommonInclude.h"     
 
 enum PersistenceType { File, Queue, Pathway };
 

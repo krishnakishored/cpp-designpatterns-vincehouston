@@ -1,4 +1,4 @@
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 // Purpose.  TypedMessage - embellished Observer, decoupled messaging
 //
 // Messages inherit from TypedMessage<self>
@@ -42,17 +42,19 @@ public:
    Off( string str ) { comment = str; }
    void stop() const { cout << "OffEvent.stop - " << comment << '\n'; }
 };
-vector<TypedMessage<Off>::Handler*> TypedMessage<Off>::registry;
+vector<TypedMessage<Off>::Handler*> TypedMessage<Off>::registry; //TODO:
 
-class MasterConsole : public On::Handler, public Off::Handler { 
-    public:
+class MasterConsole : public On::Handler, public Off::Handler 
+{ 
+public:
    void handleEvent( const On* msg ) {
       cout << "MasterConsole - ";  msg->start(); }
    void handleEvent( const Off* msg ) {
       cout << "MasterConsole - ";  msg->stop(); }
 };
 
-class PowerMonitor : public On::Handler{ 
+class PowerMonitor : public On::Handler
+{ 
     public:
    void handleEvent( const On* msg ) {
       cout << "PowerMonitor - ";  msg->start(); }
@@ -63,10 +65,14 @@ int main_observer_4( void )
    cout<<">>>>>>>> main_observer_4 <<<<<<<<"<<endl;
    MasterConsole  mc;
    PowerMonitor   pm;
-   On oneEvent( "lights" );  Off thrEvent( "elevators" );
-   On twoEvent( "hvac" );    Off fouEvent( "frontDoor" ); 
-   oneEvent.notify();  twoEvent.notify();
-   thrEvent.notify();  fouEvent.notify();
+   On oneEvent( "lights" ); 
+   Off thrEvent( "elevators" );
+   On twoEvent( "hvac" );    
+   Off fouEvent( "frontDoor" ); 
+   oneEvent.notify();  
+   twoEvent.notify();
+   thrEvent.notify(); 
+   fouEvent.notify();
    return 0;
 }
 

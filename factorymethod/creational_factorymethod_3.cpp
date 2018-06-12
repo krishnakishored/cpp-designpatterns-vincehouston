@@ -9,7 +9,7 @@
 // "placeholder" Application::CreateDocument() has been declared by the framework, and the client is expected to "fill in the blank" for his/her specific document(s). 
 // Then, when the client asks for Application::NewDocument(), the framework will subsequently call the client's MyApplication::CreateDocument().
 
-#include "CommonHeader.h"   
+#include "CommonInclude.h"   
 
 /* Abstract base class declared by framework */
 class Document {

@@ -1,7 +1,7 @@
 ﻿// Purpose.  Interpreter          
 //                                
 // Define a grammar for a language and map each rule to a class.
-#include "CommonHeader.h"    
+#include "CommonInclude.h"    
           
                                   
 int sub(char* i, char* o, char* c) 

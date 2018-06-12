@@ -1,8 +1,3 @@
-
-
-
-
-
 // Purpose.  Double dispatch (within a single hierarchy)
 //
 // Discussion.  We would like to declare a function like:
@@ -20,8 +15,7 @@
 // argument.  Flow of control has now been vectored to the spot where the
 // type (and identity) of both objects are known.
 
-#include <iostream>
-using namespace std;
+#include "CommonInclude.h"
 
 class Base { public:
    virtual void process1( Base& ) = 0;
@@ -60,15 +54,19 @@ class C : public Base { public:
       cout << "first is C, second is C\n"; }
 };
 
-int main_visitor_12( void ) 
+int main_visitor_11( void ) 
 {
-   Base* array[] = { &A(), &B(), &C() }; //message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
+   cout<<">>>>>>>> main_visitor_11 <<<<<<<<"<<endl; 
+   A myA;
+   B myB;
+   C myC;
+   Base* array[] = { &myA, &myB, &myC }; //message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
+//    Base* array[] = { &A(), &B(), &C() }; //message: taking the address of a temporary object of type 'A' [-Waddress-of-temporary]
    for (int i=0; i < 3; i++){
       for (int j=0; j < 3; j++)
        array[i]->process1( *array[j] );
    }
-      
-         
+   return 0;
 }
 
 // first is A, second is A

@@ -3,7 +3,7 @@
 
 // Purpose.  Command design pattern and class template
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 class A {
    int divisor;

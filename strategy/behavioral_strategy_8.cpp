@@ -8,7 +8,7 @@
 // It defers some details of each individual algorithm to the "justify" member which is supplied by each concrete derived class of Strategy. 
 // The TestBed class models an application class that would like to leverage the services of a run-time-specified derived "Strategy" object.
 
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 #include<fstream>
 
 

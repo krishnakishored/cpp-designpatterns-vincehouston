@@ -1,6 +1,4 @@
-#include <iostream>
-using std::cout;
-using std::endl;
+#include "CommonInclude.h"
 
 int  current = 0;
 class One;  class Two;
@@ -38,6 +36,7 @@ class Two : public State { public:
 State* states[] = { new One, new Two };
 int main_visitor_4( void )
 {
+   cout<<">>>>>>>> main_visitor_4 <<<<<<<<"<<endl; 
    Cmd* c[] = { new Off,
         new On, new Off, new Off, 0 };
    for (int i=0; c[i]; i++)

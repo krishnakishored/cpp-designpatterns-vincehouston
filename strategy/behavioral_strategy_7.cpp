@@ -8,7 +8,7 @@
 // instead of a ptr to the base class.  The inheritance approach offers
 // more options and expressiveness.  The template approach offers mildly
 // better efficiency.
-#include"CommonHeader.h"
+#include"CommonInclude.h"
 
 template<typename STRATEGY>
 class Stat {

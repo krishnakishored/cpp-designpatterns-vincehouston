@@ -3,7 +3,7 @@
 // Discussion.  Class Compute models a decimal digit adder module.  
 // An entire "subsystem" can be configured by linking as many of these modules as the desired precision requires.  
 
-#include "CommonHeader.h"
+#include "CommonInclude.h"
 
 class Compute {                         
 public:                                 
@@ -20,9 +20,9 @@ public:
 };                                      
 
 // The "subsystem" being modeled in main() is complex and burdensome to use.  
-int main_facade_unused( void ) 
+int main_without_facade( void ) 
 {
-  cout<<">>>>>>>> main_facade_unused <<<<<<<<"<<endl;                    
+  cout<<">>>>>>>> main_without_facade <<<<<<<<"<<endl;                    
    Compute  tens, ones;                
    char     a[9], b[9], c, d;          
    int      cary;                      

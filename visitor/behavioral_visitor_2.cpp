@@ -1,6 +1,4 @@
-#include <iostream>
-using std::cout;
-using std::endl;
+#include "CommonInclude.h"
 
 class Visitor;
 class Color { public:
@@ -42,8 +40,9 @@ void Red::accept( Visitor& v ) {
 void Blu::accept( Visitor& v ) {
    v.visit( *this ); }
    
-int main_visitor_2( void )
+int main_visitor_2( void )       
 {
+   cout<<">>>>>>>> main_visitor_2 <<<<<<<<"<<endl; 
    Color* set[] = { new Red, new Blu,
       new Blu, new Red, new Red, 0 };
    CountV  countOp;
@@ -52,6 +51,7 @@ int main_visitor_2( void )
       set[i]->accept( countOp );
       set[i]->accept( callOp ); }
     countOp.reportNum();
+    return 0;
 }
 // Red::eye
 // Blu::sky
