@@ -9,9 +9,8 @@
 // TypedMessage accomodates everything: registration, containment, and notification of observers
 
 template <class T>
-
 class TypedMessage {
-   static vector<Handler*> registry;
+   
 public:
    class Handler
     {
@@ -19,11 +18,15 @@ public:
       Handler() { TypedMessage<T>::registerHandler( this ); }
       virtual void handleEvent( const T* t ) = 0;
    };
-   void notify() {
+   
+private:
+      static vector <Handler*> registry;
+public:      
+  void notify() {
       for (int i=0; i < registry.size(); i++)
          registry.at(i)->handleEvent( (T*)this );
    }
-   static void registerHandler( Handler* h ) { registry.push_back( h ); }
+   static void registerHandler( Handler* h ) { registry.push_back( h ); }      
 };
 
 class On : public TypedMessage<On>  
@@ -33,7 +36,8 @@ public:
    On( string str )   { comment = str; }
    void start() const { cout << "OnEvent.start - " << comment << '\n'; }
 };
-vector<TypedMessage<On>::Handler*> TypedMessage<On>::registry; //TODO:
+template<> ////For the compiler to identify this as a template specialization (e.g. to be able to check the syntax), you need the template keyword:
+vector<TypedMessage<On>::Handler* > TypedMessage<On>::registry; //TODO:template specialization requires 'template<>'
 //declaration is incompatible with "std::__1::vector<<error-type> *, std::__1::allocator<<error-type> *>> TypedMessage<T>::registry [with T=On]" (declared at line 14)
 
 class Off : public TypedMessage<Off>  {
@@ -42,6 +46,7 @@ public:
    Off( string str ) { comment = str; }
    void stop() const { cout << "OffEvent.stop - " << comment << '\n'; }
 };
+template<> //For the compiler to identify this as a template specialization (e.g. to be able to check the syntax), you need the template keyword:
 vector<TypedMessage<Off>::Handler*> TypedMessage<Off>::registry; //TODO:
 
 class MasterConsole : public On::Handler, public Off::Handler 
@@ -61,6 +66,7 @@ class PowerMonitor : public On::Handler
 };
 
 int main_observer_4( void ) 
+// int main()
 {
    cout<<">>>>>>>> main_observer_4 <<<<<<<<"<<endl;
    MasterConsole  mc;
